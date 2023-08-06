@@ -17,8 +17,16 @@ const Footer = () => {
     heartClickSound.play();
   };
 
+  // Function to handle the "Download CV" button click
   const handleContactMeClick = () => {
-    window.open("mailto:davidsoutorocha@gmail.com");
+    // Create a temporary anchor element to trigger the download
+    const link = document.createElement("a");
+    link.href = "/cv/cv.pdf"; // Replace with the actual path to your CV file
+    link.target = "_blank"; // Open the file in a new tab if the download attribute is not supported
+    link.download = "Jose_David_Rocha_Resume.pdf"; // Set the desired filename for the download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   useEffect(() => {
@@ -47,7 +55,7 @@ const Footer = () => {
             <div className="seq pt-4 text-center">
               {/* Update the button to handle the click event */}
               <Button onClick={handleContactMeClick} classes="link" type="secondary">
-                Contact Me!
+                Download CV
               </Button>
             </div>
             <p className="text-center text-white text-sm sm:text-base font-medium tracking-wide mt-8">

@@ -48,7 +48,7 @@ const Work = () => {
 
   return (
     <section
-      className="w-full relative select-none mt-44"
+      className="w-full relative select-none"
       id={MENULINKS[2].ref}
       ref={targetSection}
     >

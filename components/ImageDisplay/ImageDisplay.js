@@ -29,7 +29,7 @@ const ImageDisplay = () => {
       }, 1250);
 
       return () => clearInterval(interval);
-    }, 3250);
+    }, 1000);
 
     return () => clearTimeout(delayTimeout);
   }, []);
@@ -74,15 +74,40 @@ const ImageDisplay = () => {
   };
 
   const getRandomTranslation = () => {
-    return {
-      x: Math.random() * 250 - 125,
-      y: Math.random() * 50 - 25,
-    };
+    if (imageNumber === 0) {
+      return {
+        x: 0,
+        y: 0,
+      }
+    } else if (window.innerWidth < 900) {
+      return {
+        x: Math.random() * 200*0.3 - 100*0.3,
+        y: Math.random() * 50 - 25,
+      };
+    } else if (window.innerWidth < 1100) {
+      return {
+        x: Math.random() * 200*0.6 - 100*0.6,
+        y: Math.random() * 50 - 25,
+      };
+    } else {
+      return {
+        x: Math.random() * 200 - 100,
+        y: Math.random() * 50 - 25,
+      };
+    }
+  };
+
+  const getWindowHeight = () => {
+    if (window.innerWidth < 768) {
+      return "50vw";
+    } else {
+      return "25vw";
+    }
   };
 
   const parentStyle = {
     width: "100%",
-    height: "50vh",
+    height: getWindowHeight(),
     position: "relative",
     display: "flex",
     justifyContent: "center",
@@ -102,7 +127,7 @@ const ImageDisplay = () => {
 
   return (
     <>
-      <div className={` seq ${isActive ? "active" : ""}`} style={parentStyle}>
+      <div className={` ${isActive ? "active" : ""}`} style={parentStyle}>
         <div className="page" ref={companyCard} style={pageStyle}>
           {imagePaths.map((path, index) => (
             <img

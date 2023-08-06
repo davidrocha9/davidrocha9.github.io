@@ -804,3 +804,47 @@ $bg: #f4faff;
 #mouth-frown {
   visibility: hidden;
 }
+
+.education {
+  width: 80%;
+}
+
+.introduction, .cardstack {
+  flex: '0 0 50%'
+}
+
+@media (max-width: 767px) {
+  .cardstack {
+    flex: 0 0 100%;
+  }
+
+  .cardstack {
+    margin-top: 20%;
+  }
+
+  .introduction {
+    margin-top: 0%;
+    padding-top: 5rem;
+    flex: 0 0 60%
+  }
+
+  .education {
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .cardstack {
+    flex: 0 0 100%;
+  }
+
+  .cardstack {
+    margin-top: 20%;
+  }
+
+  .introduction {
+    margin-top: 0%;
+    padding-top: 5rem;
+    flex: 0 0 70%
+  }
+}
