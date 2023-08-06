@@ -1,9 +1,6 @@
 module.exports = {
     // Configure your image optimization options here
     // For example, to disable Image Optimization:
-    images: {
-      unoptimized: true,
-    },
   
     // Other Next.js configurations can be added here
     // For example, if you're using custom routes with "next.config.js" exportPathMap
