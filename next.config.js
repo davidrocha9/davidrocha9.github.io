@@ -1,12 +1,21 @@
-const withPWA = require("next-pwa");
-
-const isProd = process.env.NODE_ENV === "production";
-
 module.exports = {
-    target: 'serverless', // This ensures compatibility with platforms like GitHub Pages
-    // Other configurations if needed
+    // Configure your image optimization options here
+    // For example, to disable Image Optimization:
     images: {
-        // Set this to true to disable Image Optimization
-        unoptimized: true,
-      },
-};
+      unoptimized: true,
+    },
+  
+    // Other Next.js configurations can be added here
+    // For example, if you're using custom routes with "next.config.js" exportPathMap
+    // exportPathMap: async function () {
+    //   return {
+    //     '/': { page: '/' },
+    //     '/about': { page: '/about' },
+    //     '/contact': { page: '/contact' },
+    //     // Add other custom routes here
+    //   };
+    // },
+  
+    // You can add other Next.js configurations as needed
+  };
+  
