@@ -1,20 +1,19 @@
 export const METADATA = {
   author: "José David Rocha",
-  title: "Portfolio | José David Rocha",
+  title: "José David Rocha | Software Engineer",
   description:
     "José David Rocha is a recent graduate from Faculdade de Engenharia da Universidade do Porto (FEUP) with a Master's degree in Informatics and Computing Engineering. He is a software developer with a passion for frontend and backend development, game development, data mining and modeling, and sports.",
-  siteUrl: "https://www.shubhporwal.me/",
+  siteUrl: "davidrocha9.github.io",
   twitterHandle: "@davidrocha_9",
   keywords: [
     "José David Rocha",
     "Frontend Developer",
+    "Full-Stack Developer",
     "Web Developer",
-    "React Native Developer",
+    "Game Developer",
     "Software Developer",
     "Software Engineer",
     "Portfolio",
-    "Devfolio",
-    "Folio",
   ].join(", "),
   image:
     "https://res.cloudinary.com/dywdhyojt/image/upload/v1690572126/preview.png",
@@ -45,15 +44,15 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-  "I'm a tech enthusiast.",
-  "I'm a software developer.",
-  "I'm into frontend and backend development.",
+  "I'm a software engineer.",
+  "I'm into frontend development.",
+  "I'm also into full-stack development.",
   "I'm a game developer and designer.",
   "I'm keen on data mining and modeling.",
   "I'm a die-hard FC Porto fan.",
   "I'm a passionate gamer.",
   "I'm a sports enthusiast.",
-  "I'm a bookworm and avid traveler.",
+  "I'm an avid traveler.",
   "I'm a social person.",
 ];
 

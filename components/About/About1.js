@@ -56,7 +56,7 @@ const About1 = ({ clientHeight }) => {
             I recently concluded my Master&apos;s Degree in Informatics and Computer Engineering from Faculdade de Engenharia da Universidade do Porto.{" "}
           </span>
           <span className="about-2 leading-tight">
-            I&apos;m a 23-year-old proactive and motivated CS enthusiast, passionate about everything tech related.{" "}
+            I&apos;m a 23-year-old proactive and motivated tech entusiast, passioante about building things.{" "}
           </span>
         </h1>
       </div>

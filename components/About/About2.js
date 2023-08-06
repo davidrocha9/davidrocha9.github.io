@@ -51,7 +51,7 @@ const About2 = ({ clientHeight }) => {
           well as <span className="about-3 font-bold">game development</span>
         </h1>
       </div>
-      <style jsx global>{`
+      <style>{`
         .about-3 {
           background: linear-gradient(
             180deg, /* Use 180deg for vertical gradient */

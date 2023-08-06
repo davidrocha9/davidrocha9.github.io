@@ -346,7 +346,7 @@ const Contact = () => {
           </button>
         </div>
       </div>
-      <style jsx global>{`
+      <style>{`
         input,
         label,
         textarea {

@@ -69,7 +69,7 @@ const Footer = () => {
         loading="eager"
         height={180}
       />
-      <style jsx global>{`
+      <style>{`
         footer {
           background-image: linear-gradient(270deg, #9f55ff, #7000ff, #8b31ff);
         }
