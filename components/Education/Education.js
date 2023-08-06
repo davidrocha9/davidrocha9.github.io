@@ -72,7 +72,7 @@ const Education = () => {
                 Sep 2021 - Jul 2023
               </h3>
               <h3 className="tracking-widest text-gray-light-2 font-medium text-base mb-2 seq" style={{fontSize: "2rem"}}>
-                <b>Master's Degree in Informatics and Computing Engineering</b>
+                <b>Master&apos;s Degree in Informatics and Computing Engineering</b>
               </h3>
               <a
                 href="https://fe.up.pt" // Replace "https://fe.up.pt" with the actual URL you want to link to
@@ -104,7 +104,7 @@ const Education = () => {
                 Sep 2018 - Jul 2021
               </h3>
               <h3 className="tracking-widest text-gray-light-2 font-medium text-base mb-2 seq" style={{fontSize: "2rem"}}>
-                <b>Bachelor's Degree in Informatics and Computing Engineering</b>
+                <b>Bachelor&apos;s Degree in Informatics and Computing Engineering</b>
               </h3>
               <a
                 href="https://fe.up.pt" // Replace "https://fe.up.pt" with the actual URL you want to link to

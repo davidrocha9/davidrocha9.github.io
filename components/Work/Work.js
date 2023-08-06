@@ -97,7 +97,7 @@ const Work = () => {
                   </h3>
                   <h3>
                   <ul>
-                      <li>- Developed my Master's Thesis</li>
+                      <li>- Developed my Master&apos;s Thesis</li>
                       <li>- Collaborated with a team of professionals to discuss the progress and state of the work during bi-weekly meetings.</li>
                       <li>- Demonstrated strong problem-solving skills and adaptability in handling challenges encountered during the project.</li>
                       <li>- Gained valuable experience working in a professional IT environment and contributing to real-world projects.</li>

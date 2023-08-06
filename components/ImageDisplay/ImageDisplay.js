@@ -61,7 +61,7 @@ const ImageDisplay = () => {
   }, [imageNumber]);
 
   useEffect(() => {
-    VanillaTilt.init(companyCard.current, options);
+    VanillaTilt.init(companyCard.current, { ...options, glare: false });
     removeOldImagesIfNeeded();
   }, [companyCard.current]);
 
@@ -75,7 +75,7 @@ const ImageDisplay = () => {
 
   const getRandomTranslation = () => {
     return {
-      x: Math.random() * 150 - 75,
+      x: Math.random() * 250 - 125,
       y: Math.random() * 50 - 25,
     };
   };

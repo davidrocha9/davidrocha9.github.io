@@ -79,7 +79,7 @@ const Collaboration = ({ clientHeight }) => {
             .reduce((str, el) => str.concat(el), "")}{" "}
         </p>
       </div>
-      <style jsx global>{`
+      <style>{`
         .text-strong {
           background: linear-gradient(
             90deg,
