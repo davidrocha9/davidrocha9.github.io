@@ -45,7 +45,7 @@ const Education = () => {
 
   return (
     <section
-      className="w-full relative select-none mt-20"
+      className="w-full relative select-none mt-44"
       id={MENULINKS[1].ref}
       ref={targetSection}
     >

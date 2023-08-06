@@ -30,21 +30,7 @@ const Work = () => {
       animation: revealTl,
       scrub: 0,
     });
-
-  revealTl.from(
-    targetSection.current.querySelectorAll(".seq2"),
-    { opacity: 0, duration: 0.5, stagger: 0.5 },
-    "<"
-  );
-
-  ScrollTrigger.create({
-    trigger: targetSection.current.querySelector(".skills-wrapper"),
-    start: "100px bottom",
-    end: `center center`,
-    animation: revealTl,
-    scrub: 0,
-  });
-}, [targetSection]);
+  }, [targetSection]);
 
   return (
     <section
