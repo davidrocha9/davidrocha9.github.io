@@ -115,7 +115,7 @@ export const PROJECTS = [
     blurImage: "/projects/blur/airbnb-blur.webp",
     description: "Evaluation of Text Diversity over time for Automatically Generated Texts in Sports Journalism",
     gradient: ["#F14658", "#DC2537"],
-    url: "https://shubh73-airbnb.vercel.app/",
+    url: "https://repositorio-aberto.up.pt/handle/10216/152101",
     tech: ["python" ],
   },
   {
