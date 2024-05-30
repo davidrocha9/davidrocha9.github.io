@@ -53,11 +53,11 @@ const About2 = ({ clientHeight }) => {
           className="font-medium text-[2.3rem] md:text-6xl lg:text-[3rem] text-center"
         >
           <span className="about-1 leading-tight italic">
-            "We don&apos;t stop playing because we grow old.{" "}
+            &quot;We don&apos;t stop playing because we grow old.{" "}
           </span>
           <br />
           <span className="about-2 leading-tight italic" >
-            We grow old because we stop playing."{" "}
+            We grow old because we stop playing.&quot;{" "}
           </span>
           <br />
           <br />
