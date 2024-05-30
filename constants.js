@@ -102,24 +102,6 @@ export const SKILLS = {
 
 export const PROJECTS = [
   {
-    name: "Master's Thesis",
-    image: "/projects/thesis.webp",
-    blurImage: "/projects/blur/airbnb-blur.webp",
-    description: "Evaluation of Text Diversity over time for Automatically Generated Texts in Sports Journalism",
-    gradient: ["#F14658", "#DC2537"],
-    url: "https://repositorio-aberto.up.pt/handle/10216/152101",
-    tech: ["python" ],
-  },
-  {
-    name: "RNG - Reviews & News in Gaming",
-    image: "/projects/rng.webp",
-    blurImage: "/projects/blur/medium-blur.webp",
-    description: "Full-Stack WebApp- News forum for gaming 🎮",
-    gradient: ["#FFA62E", "#EA4D2C"],
-    url: "https://github.com/davidrocha9/RNG",
-    tech: ["html", "css", "bootstrap", "laravel", "postgresql", "php"],
-  },
-  {
     name: "Rushing B",
     image: "/projects/rushingb1.webp",
     blurImage: "/projects/blur/airbnb-blur.webp",
@@ -137,6 +119,24 @@ export const PROJECTS = [
     url: "https://github.com/davidrocha9/TimeHopper",
     tech: ["unity", "c-sharp"],
   },
+  {
+    name: "RNG - Reviews & News in Gaming",
+    image: "/projects/rng.webp",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description: "Full-Stack WebApp- News forum for gaming 🎮",
+    gradient: ["#FFA62E", "#EA4D2C"],
+    url: "https://github.com/davidrocha9/RNG",
+    tech: ["html", "css", "bootstrap", "laravel", "postgresql", "php"],
+  },
+  {
+    name: "Master's Thesis",
+    image: "/projects/thesis.webp",
+    blurImage: "/projects/blur/airbnb-blur.webp",
+    description: "Evaluation of Text Diversity over time for Automatically Generated Texts in Sports Journalism",
+    gradient: ["#F14658", "#DC2537"],
+    url: "https://repositorio-aberto.up.pt/handle/10216/152101",
+    tech: ["python" ],
+  }
 ];
 
 export const WORK = [

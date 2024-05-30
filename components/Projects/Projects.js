@@ -91,14 +91,11 @@ const Projects = ({ isDesktop, clientHeight }) => {
           className="flex flex-col inner-container transform-gpu"
           ref={sectionTitle}
         >
-          <p className="uppercase tracking-widest text-gray-light-1 seq">
-            DEVELOPED DURING COLLEGE
-          </p>
           <h1 className="text-6xl mt-2 font-medium text-gradient w-fit seq">
             My Projects
           </h1>
           <h2 className="text-[1.65rem] font-medium md:max-w-lg max-w-sm mt-2 seq">
-            Some of my college work standouts, which best reflect my interests and strengths.
+            Some of my college work standouts and side projects which best reflect my interests and strengths.
           </h2>
         </div>
         <div
