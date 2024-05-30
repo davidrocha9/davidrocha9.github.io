@@ -2,40 +2,33 @@ import { useEffect, useRef } from "react";
 import { gsap, Linear } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-const About1 = ({ clientHeight }) => {
+const About = ({ clientHeight }) => {
   const quoteRef = useRef(null);
   const targetSection = useRef(null);
 
   useEffect(() => {
     const timeline = gsap.timeline({
-      defaults: { ease: Linear.easeNone, duration: 0.3 },
+      defaults: { ease: Linear.easeNone, duration: 0.1 },
     });
-
+  
     timeline
-      .fromTo(
-        quoteRef.current.querySelector(".about-1"),
-        { opacity: 0.2 },
-        { opacity: 1 }
+      .from(quoteRef.current, { opacity: 0, duration: 2 })
+      .to(
+        quoteRef.current.querySelector(".about-3:nth-child(1)"),
+        // Animate the first occurrence of .about-3 (frontend) first
+        { backgroundPositionY: "100%", duration: 1 }
       )
-      .to(quoteRef.current.querySelector(".about-1"), {
-        opacity: 0.2,
-        delay: 0.5,
-      })
-      .fromTo(
-        quoteRef.current.querySelector(".about-2"),
-        { opacity: 0.2 },
-        { opacity: 1 },
-        "<"
-      )
-      .to(quoteRef.current.querySelector(".about-2"), {
-        opacity: 0.2,
-        delay: 1,
-      });
-
+      .to(
+        quoteRef.current.querySelectorAll(".about-3:not(:nth-child(1))"),
+        // Animate the rest of the .about-3 spans with a delay
+        { backgroundPositionY: "100%", duration: 1, stagger: 0.2 },
+        "-=0.8" // Delay the staggered animation by 0.8 seconds
+      );
+  
     ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "center 80%",
-      end: "center top",
+      start: "center bottom",
+      end: "center center",
       scrub: 0,
       animation: timeline,
     });
@@ -45,23 +38,35 @@ const About1 = ({ clientHeight }) => {
     <section className="w-full relative select-none" ref={targetSection}>
       <div
         className={`${
-          clientHeight > 650 ? "pt-28 pb-16" : "pt-80 pb-72"
+          clientHeight > 650 ? "py-50" : "py-62"
         } section-container`}
       >
         <h1
           ref={quoteRef}
-          className="font-medium text-[2.70rem] md:text-6xl lg:text-[3.5rem] text-center"
+          className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
         >
-          <span className="about-1 leading-tight">
-            I recently concluded my Master&apos;s Degree in Informatics and Computer Engineering from Faculdade de Engenharia da Universidade do Porto.{" "}
-          </span>
-          <span className="about-2 leading-tight">
-            I&apos;m a 23-year-old proactive and motivated tech entusiast, passionate about building things.{" "}
-          </span>
+          I am a proactive and motivated 24-year-old passionate about{" "}
+          <span className="about-3 font-bold">game development</span>. My ultimate goal is to not just make{" "}
+          <span className="about-3 font-bold">great games</span>, but also craft{" "}
+          <span className="about-3 font-bold">unforgettable experiences</span>.
         </h1>
       </div>
+      <style>{`
+        .about-3 {
+          background: linear-gradient(
+            180deg, /* Use 180deg for vertical gradient */
+            #ffffff 0%,
+            #ffffff 50%,
+            #8b31ff 51%,
+            #7000ff 100%
+          );
+          background-size: 100% 210%; /* Adjust background-size for vertical animation */
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      `}</style>
     </section>
   );
 };
 
-export default About1;
+export default About;

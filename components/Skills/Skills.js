@@ -42,9 +42,6 @@ const Skills = () => {
         />
         <div className="flex flex-col skills-wrapper">
           <div className="flex flex-col">
-            <p className="uppercase tracking-widest text-gray-light-1 seq">
-              SKILLS
-            </p>
             <h1 className="text-6xl mt-2 font-medium text-gradient w-fit seq">
               My Skills
             </h1>

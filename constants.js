@@ -137,15 +137,6 @@ export const PROJECTS = [
     url: "https://github.com/davidrocha9/TimeHopper",
     tech: ["unity", "c-sharp"],
   },
-  {
-    name: "ConfMate",
-    image: "/projects/confmate.webp",
-    blurImage: "/projects/blur/tesla-blur.webp",
-    description: "3D Horde-like Game 🧟",
-    gradient: ["#142D46", "#2E4964"],
-    url: "https://github.com/davidrocha9/TimeHopper",
-    tech: ["flutter", "firebase"],
-  }
 ];
 
 export const WORK = [

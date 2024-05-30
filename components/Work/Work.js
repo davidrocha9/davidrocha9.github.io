@@ -39,14 +39,6 @@ const Work = () => {
       ref={targetSection}
     >
       <div className="section-container py-16 flex flex-col justify-center">
-        <img
-          src="/right-pattern.svg"
-          alt=""
-          className="absolute hidden right-0 bottom-2/4 w-2/12 max-w-xs md:block"
-          loading="lazy"
-          height={700}
-          width={320}
-        />
         <div className="flex flex-row"> {/* Wrap each set of Work in a flex-row */}
           <div className="flex flex-col skills-wrapper"  style={{width: "100%"}}>
             <div className="flex flex-col">

@@ -8,27 +8,34 @@ const About2 = ({ clientHeight }) => {
 
   useEffect(() => {
     const timeline = gsap.timeline({
-      defaults: { ease: Linear.easeNone, duration: 0.1 },
+      defaults: { ease: Linear.easeNone, duration: 0.3 },
     });
-  
+
     timeline
-      .from(quoteRef.current, { opacity: 0, duration: 2 })
-      .to(
-        quoteRef.current.querySelector(".about-3:nth-child(1)"),
-        // Animate the first occurrence of .about-3 (frontend) first
-        { backgroundPositionY: "100%", duration: 1 }
+      .fromTo(
+        quoteRef.current.querySelector(".about-1"),
+        { opacity: 0.2 },
+        { opacity: 1 }
       )
-      .to(
-        quoteRef.current.querySelectorAll(".about-3:not(:nth-child(1))"),
-        // Animate the rest of the .about-3 spans with a delay
-        { backgroundPositionY: "100%", duration: 1, stagger: 0.2 },
-        "-=0.8" // Delay the staggered animation by 0.8 seconds
-      );
-  
+      .to(quoteRef.current.querySelector(".about-1"), {
+        opacity: 0.2,
+        delay: 0.5,
+      })
+      .fromTo(
+        quoteRef.current.querySelector(".about-2"),
+        { opacity: 0.2 },
+        { opacity: 1 },
+        "<"
+      )
+      .to(quoteRef.current.querySelector(".about-2"), {
+        opacity: 0.2,
+        delay: 1,
+      })
+
     ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "center bottom",
-      end: "center center",
+      start: "center 80%",
+      end: "center top",
       scrub: 0,
       animation: timeline,
     });
@@ -38,33 +45,31 @@ const About2 = ({ clientHeight }) => {
     <section className="w-full relative select-none" ref={targetSection}>
       <div
         className={`${
-          clientHeight > 650 ? "py-80" : "py-72"
+          clientHeight > 650 ? "pt-28 pb-16" : "pt-80 pb-72"
         } section-container`}
       >
         <h1
           ref={quoteRef}
-          className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
+          className="font-medium text-[2.3rem] md:text-6xl lg:text-[3rem] text-center"
         >
-          I have a strong passion for both{" "}
-          <span className="about-3 font-bold">frontend</span> and{" "}
-          <span className="about-3 font-bold">full-stack</span> development, as
-          well as <span className="about-3 font-bold">game development</span>
+          <span className="about-1 leading-tight italic">
+            "We don&apos;t stop playing because we grow old.{" "}
+          </span>
+          <br />
+          <span className="about-2 leading-tight italic" >
+            We grow old because we stop playing."{" "}
+          </span>
+          <br />
+          <br />
+        </h1>
+        <h1
+          className="font-medium text-[1rem] md:text-6xl lg:text-[2rem] text-center"
+        >
+          <span className="opacity-20" >
+            George Bernard Shaw
+          </span>
         </h1>
       </div>
-      <style>{`
-        .about-3 {
-          background: linear-gradient(
-            180deg, /* Use 180deg for vertical gradient */
-            #ffffff 0%,
-            #ffffff 50%,
-            #8b31ff 51%,
-            #7000ff 100%
-          );
-          background-size: 100% 210%; /* Adjust background-size for vertical animation */
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      `}</style>
     </section>
   );
 };
