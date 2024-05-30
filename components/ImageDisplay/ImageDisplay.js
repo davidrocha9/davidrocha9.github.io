@@ -133,6 +133,8 @@ const ImageDisplay = () => {
     alignItems: 'center', // Center images vertically
   };
 
+  const heightPercentage = window.innerWidth < 768 ? '75%' : '60%';
+
   return (
     <>
       <div className={` ${isActive ? "active" : ""}`} style={parentStyle}>
@@ -146,9 +148,8 @@ const ImageDisplay = () => {
                 position: 'absolute',
                 zIndex: -20,
                 transform: `rotate(${imageRotations[index]}deg) translate(${imageTranslations[index].x}px, ${imageTranslations[index].y}px)`,
-                height: '75%',
+                height: heightPercentage,
                 objectFit: "cover",
-
               }}
             />
           ))}

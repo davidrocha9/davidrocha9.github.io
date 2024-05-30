@@ -13,9 +13,9 @@ const Menu = () => {
   }, []);
 
   return (
-    <div className="menu fixed top-0 left-0 w-full h-full overflow-hidden invisible pointer-events-none flex items-center justify-center">
-      <div className="flex-none overflow-hidden flex items-center justify-center">
-        <div className="text-center opacity-0 overflow-y-auto overflow-x-hidden flex flex-none justify-center items-center max-h-screen">
+    <div className="menu fixed top-0 left-0 w-full h-full overflow-hidden invisible pointer-events-none flex items-center justify-center" style={{height: "110vh", marginTop: "-10vh"}}>
+      <div className="flex-none overflow-hidden flex items-center justify-center" style={{width: "dotted blue"}}>
+        <div className="text-center opacity-0 overflow-y-auto overflow-x-hidden flex flex-none justify-center items-center max-h-screen" style={{border: "dotted red"}}>
           <ul className="list-none py-4 px-0 m-0 block max-h-screen">
             {MENULINKS.map((el) => (
               <li className="p-0 m-6 text-2xl block" key={el.name}>
