@@ -61,10 +61,40 @@ const Work = () => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
+                  <b style={{fontSize: '1.5rem'}}>Junior Software Engineer <a
+                    href="https://arkadium.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="tracking-widest text-gray-light-2 font-medium text-base mb-2 text-gradient" style={{fontSize: "1.5rem"}}
+                  >
+                    <b>@ Arkadium</b>
+                    </a>
+                  </b>
+                  <h3 className="tracking-widest text-gray-light-2 font-medium text-base mb-2" style={{fontSize: "1rem"}}>
+                    Oct 2023 - Present
+                  </h3>
+                  <h3>
+                  <ul>
+                      <li>- Delivered game updates that meet product requirements, quality standards and production schedules</li>
+                      <li>- Worked alongside partners (AARP, Microsoft, Usa Today) to deliver game updates to their platforms</li>
+                      <li>- Optimized game performance, refactored code, integrated third-party libraries, actively fixed defects and addressed user feedback</li>
+                      <li>- Effectively understood and utilized standardized technical tools, processes and templates</li>
+                      <li>- Worked proficiently with a multidisciplinary team, while recommending improvements in all areas of development</li>
+                      <li>- Worked with the team to clarify requirements, project progress, code decisions and timelines</li>
+                    </ul>
+                  </h3>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem className="seq">
+                <TimelineSeparator>
+                  <TimelineDot style={{borderWidth: "10px", backgroundColor: "rgba(138,48,255,255)"}}/>
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
                   <b style={{fontSize: '1.5rem'}}>Internship <a
-                    href="zerozero.pt" // Replace "https://fe.up.pt" with the actual URL you want to link to
-                    target="_blank" // This will open the link in a new tab
-                    rel="noopener noreferrer" // Recommended for security reasons
+                    href="https://zerozero.pt"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="tracking-widest text-gray-light-2 font-medium text-base mb-2 text-gradient" style={{fontSize: "1.5rem"}}
                   >
                     <b>@ ZeroZero</b>
