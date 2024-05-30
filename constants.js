@@ -1,17 +1,13 @@
 export const METADATA = {
-  author: "José David Rocha",
-  title: "José David Rocha | Software Engineer",
+  author: "David Rocha",
+  title: "David Rocha | Software Engineer",
   description:
-    "José David Rocha is a recent graduate from Faculdade de Engenharia da Universidade do Porto (FEUP) with a Master's degree in Informatics and Computing Engineering. He is a software developer with a passion for frontend and backend development, game development, data mining and modeling, and sports.",
+    "David Rocha is a recent graduate from Faculdade de Engenharia da Universidade do Porto (FEUP) with a Master's degree in Informatics and Computing Engineering. He is a software developer with a passion for frontend and backend development, game development, data mining and modeling, and sports.",
   siteUrl: "davidrocha9.github.io",
   twitterHandle: "@davidrocha_9",
   keywords: [
-    "José David Rocha",
-    "Frontend Developer",
-    "Full-Stack Developer",
-    "Web Developer",
+    "David Rocha",
     "Game Developer",
-    "Software Developer",
     "Software Engineer",
     "Portfolio",
   ].join(", "),
@@ -45,11 +41,7 @@ export const MENULINKS = [
 
 export const TYPED_STRINGS = [
   "I'm a software engineer.",
-  "I'm into frontend development.",
-  "I'm also into full-stack development.",
-  "I'm a game developer and designer.",
-  "I'm keen on data mining and modeling.",
-  "I'm a die-hard FC Porto fan.",
+  "I'm a game developer.",
   "I'm a passionate gamer.",
   "I'm a sports enthusiast.",
   "I'm an avid traveler.",

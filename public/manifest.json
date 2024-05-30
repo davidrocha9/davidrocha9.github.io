@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Portfolio | José David Rocha",
-  "short_name": "José David Rocha",
-  "description": "José David Rocha's Portfolio Website.",
+  "name": "Portfolio | David Rocha",
+  "short_name": "David Rocha",
+  "description": "David Rocha's Portfolio Website.",
   "icons": [
     {
       "src": "/icon-192x192.png",

@@ -79,14 +79,14 @@ const Hero = () => {
       </style>
       <div
         className="cardstack flex items-center justify-center hide-on-small-screen"
-        style={{ flex: "0 0 50%"}}
+        style={{width: "50rem"}}
       >
         <ImageDisplay />
       </div>
-      <div className="flex" style={{justifyContent: "center", alignItems: "center", position: "relative"}}>
+      <div className="flex" style={{width: "50rem", justifyContent: "center", alignItems: "center", position: "relative"}}>
         <div
           className="flex flex-col pt-40 md:pt-0 select-none introduction"
-          style={{position: "relative", top: "0"}}
+          style={{position: "relative", top: "0", width: "100%"}}
         >
           <h5
             className={`${styles.intro} font-mono font-medium text-indigo-light seq`}
@@ -94,7 +94,6 @@ const Hero = () => {
             Hi, my name is
           </h5>
           <h1 className={`${styles.heroName} text-white text-6xl font-semibold`}>
-            <span className="seq">José </span>
             <span className={`relative ${styles.emphasize} seq`}>David</span>
             <span className="seq"> Rocha</span>
           </h1>

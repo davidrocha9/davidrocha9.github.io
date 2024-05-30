@@ -97,6 +97,14 @@ const ImageDisplay = () => {
     }
   };
 
+  const getWindowWidth = () => {
+    if (window.innerWidth < 768) {
+      return "50vw";
+    } else {
+      return "25vw";
+    }
+  };
+
   const getWindowHeight = () => {
     if (window.innerWidth < 768) {
       return "50vw";
@@ -106,7 +114,7 @@ const ImageDisplay = () => {
   };
 
   const parentStyle = {
-    width: "100%",
+    width: getWindowWidth(),
     height: getWindowHeight(),
     position: "relative",
     display: "flex",
@@ -138,8 +146,9 @@ const ImageDisplay = () => {
                 position: 'absolute',
                 zIndex: -20,
                 transform: `rotate(${imageRotations[index]}deg) translate(${imageTranslations[index].x}px, ${imageTranslations[index].y}px)`,
-                height: '100%',
-                objectFit: "cover"
+                height: '75%',
+                objectFit: "cover",
+
               }}
             />
           ))}
