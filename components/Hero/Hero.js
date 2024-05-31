@@ -60,6 +60,8 @@ const Hero = () => {
     link.click();
     document.body.removeChild(link);
   };
+  
+  const isLandscape = window.innerWidth > 768;
 
   return (
     <section
@@ -78,12 +80,12 @@ const Hero = () => {
         `}
       </style>
       <div
-        className="cardstack flex items-center justify-center hide-on-small-screen"
-        style={{width: "50rem"}}
+        className={`cardstack items-center justify-center hide-on-small-screen flex ${isLandscape ? 'w-50rem' : ''}`}
+        style={{width: isLandscape ? "50vw" : "100vw"}}
       >
         <ImageDisplay />
       </div>
-      <div className="flex" style={{width: "50rem", justifyContent: "center", alignItems: "center", position: "relative"}}>
+      <div style={{width: isLandscape ? "50vw" : "100vw", justifyContent: "center", alignItems: "center", position: "relative"}}>
         <div
           className="flex flex-col pt-40 md:pt-0 select-none introduction"
           style={{position: "relative", top: "0", width: "100%"}}
