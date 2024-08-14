@@ -1,0 +1,75 @@
+baseURL: "https://davidrocha9.github.io/"
+languageCode: en-gb
+title: David Rocha
+theme: PaperMod
+
+paginate: 5
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+
+menu:
+  main:
+    - name: Archive
+      url: archives/
+      weight: 2
+    - name: Posts
+      url: posts/
+      weight: 1
+    - name: Resumé
+      url: /documents/cv.pdf
+      weight: 3
+
+params:
+  homeInfoParams:
+    imageUrl: "profile.png"
+    Title: "About me"
+    Content: >
+      - I am a passionate software engineer dedicated to building innovative solutions. Continuously learning and mastering new technologies to deliver the best products.
+
+      - 
+
+      - Currently working as a Junior Software Engineer @ [Arkadium](https://www.arkadium.com/). 
+
+      -
+
+      - You can get in touch with me or view my resumé through the links below.
+
+  # Social links
+  socialIcons:
+    - name: github
+      url: "https://github.com/davidrocha9"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/josedavidrocha/"
+    - name: email
+      url: "mailto:davidsoutorocha@gmail.com"
+    - name: cv
+      url: /documents/cv.pdf
+
+  sectionPagesMenu: main
+
+  ShowShareButtons: false
+  ShowReadingTime: true
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: false
+  ShowToc: false
+  UseHugoToc: true
+  SearchHidden: true
+  PostAuthorMeta: true
+  ShowWordCount: false
+  googleAnalytics: "G-944PC0V73G"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
