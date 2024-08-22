@@ -1,7 +1,7 @@
 {{- with site.Params.homeInfoParams }}
-<article class="first-entry home-info">
-    <header class="entry-header">
-        <div class="entry-image">
+<article class="home-entry home-info">
+    <header class="home-header">
+        <div class="home-image">
             {{- if .imageUrl -}}
             {{- $img := "" }}
             {{- if not (urls.Parse .imageUrl).IsAbs }}
@@ -34,11 +34,11 @@
         </div>
         <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="entry-content">
+    <div class="home-content">
         {{ .Content | markdownify }}
     </div>
-    <footer class="entry-footer">
-        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+    <footer class="home-footer">
+        {{ partial "social_icons.html" site.Params.socialIcons }}
     </footer>
 </article>
 {{- end -}}

@@ -1,23 +1,37 @@
 {{- $scratch := newScratch }}
 
+{{- $delim := " | " }}
+
 {{- if not .Date.IsZero -}}
-{{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+  <span class="post-date">{{ .Date | time.Format (default "January 2, 2006" site.Params.DateFormat) }}</span>
+  {{- $scratch.Set "showDelim" true -}}
+{{- else -}}
+  {{- $scratch.Set "showDelim" false -}}
 {{- end }}
 
 {{- if (.Param "ShowReadingTime") -}}
-{{- $scratch.Add "meta" (slice (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime))) }}
+  {{- if $scratch.Get "showDelim" -}}
+    {{- $delim -}}
+  {{- end -}}
+  <span class="reading-time">{{ i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime) }}</span>
+  {{- $scratch.Set "showDelim" true -}}
+{{- else -}}
+  {{- $scratch.Set "showDelim" false -}}
 {{- end }}
 
 {{- if (.Param "ShowWordCount") -}}
-{{- $scratch.Add "meta" (slice (i18n "words" .WordCount | default (printf "%d words" .WordCount))) }}
+  {{- if $scratch.Get "showDelim" -}}
+    {{- $delim -}}
+  {{- end -}}
+  <span class="word-count">{{ i18n "words" .WordCount | default (printf "%d words" .WordCount) }}</span>
+  {{- $scratch.Set "showDelim" true -}}
+{{- else -}}
+  {{- $scratch.Set "showDelim" false -}}
 {{- end }}
 
 {{- if not (.Param "hideAuthor") -}}
-{{- with (partial "author.html" .) }}
-{{- $scratch.Add "meta" (slice .) }}
+    {{- $delim -}}
+  {{- with (partial "author.html" .) }}
+    <span class="author">{{ . }}</span>
+  {{- end }}
 {{- end }}
-{{- end }}
-
-{{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
-{{- end -}}

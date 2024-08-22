@@ -7,10 +7,12 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Projects | David Rocha</title>
 <meta name="keywords" content="">
-<meta name="description" content="Projects - David Rocha">
+<meta name="description" content="projects">
 <meta name="author" content="">
 <link rel="canonical" href="//localhost:1313/projects/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.1d20272a70560ea7137eee3eaa60cfe24d936656a1ae143a43f4c333318383df.css" integrity="sha256-HSAnKnBWDqcTfu4&#43;qmDP4k2TZlahrhQ6Q/TDMzGDg98=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3f00fcc48bfdd0275c64a91146cc9a776e026cbb8f6c6c877c82aee8acd18c33.css" integrity="sha256-PwD8xIv90CdcZKkRRsyad24CbLuPbGyHfIKu6KzRjDM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="//localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
@@ -18,7 +20,10 @@
 <link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="//localhost:1313/projects/index.xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="en" href="//localhost:1313/projects/">
 <noscript>
     <style>
@@ -37,7 +42,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
+                --hljs-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,9 +62,33 @@
 
     </style>
 </noscript>
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3674058,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+<script src="https://cdn.usefathom.com/script.js" data-site="MKJTJVUS" defer></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MHJH4BCFPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MHJH4BCFPM');
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -96,6 +125,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -105,8 +136,14 @@
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/projects/" title="Projects">
-                    <span class="active">Projects</span>
+                <a href="//localhost:1313/documents/cv.pdf" title="Resumé">
+                    <span>Resumé</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
                 </a>
             </li>
             <li>
@@ -114,50 +151,18 @@
                     <span>Archive</span>
                 </a>
             </li>
-            <li>
-                <a href="//localhost:1313/documents/cv.pdf" title="Resumé">
-                    <span>Resumé</span>
-                </a>
-            </li>
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="//localhost:1313/">Home</a></div>
-  <h1>
-    Projects
-    <a href="/projects/index.xml" title="RSS" aria-label="RSS">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" height="23">
-        <path d="M4 11a9 9 0 0 1 9 9" />
-        <path d="M4 4a16 16 0 0 1 16 16" />
-        <circle cx="5" cy="19" r="1" />
-      </svg>
-    </a>
-  </h1>
-</header>
+<main class="main">
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Connect 4 Game with C&#43;&#43; SDL2 and Minimax
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>About You can the source code for this project here.
-Setup Instructions Prerequisites C&#43;&#43; Compiler: A modern C&#43;&#43; compiler (e.g., GCC, Clang, MSVC). SDL2 Library: Install the SDL2 library. You can download it from SDL2’s official website. Installation Clone the Repository
-git clone https://github.com/davidrocha9/connect-four-game.git cd connect-four-game Install SDL2
-On Ubuntu/Debian:
-sudo apt-get install libsdl2-dev On macOS (using Homebrew):
-brew install sdl2 On Windows: Download the SDL2 development libraries from the SDL2 download page and follow the instructions for setting up SDL2 with your IDE....</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-08-13 00:00:00 +0000 UTC'>August 13, 2024</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Connect 4 Game with C&#43;&#43; SDL2 and Minimax" href="//localhost:1313/projects/connect-4-game/"></a>
-</article>
+<header class="page-header">
+    wip
+</header>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="//localhost:1313/">David Rocha</a></span> · 
-
+    <span>&copy; 2024 <a href="//localhost:1313/">David Rocha</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
@@ -223,6 +228,53 @@ brew install sdl2 On Windows: Download the SDL2 development libraries from the S
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

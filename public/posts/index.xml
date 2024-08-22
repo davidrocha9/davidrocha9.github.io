@@ -4,8 +4,7 @@
     <title>Posts on David Rocha</title>
     <link>//localhost:1313/posts/</link>
     <description>Recent content in Posts on David Rocha</description>
-    <generator>Hugo -- 0.132.0</generator>
-    <language>en-gb</language>
-    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language><atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

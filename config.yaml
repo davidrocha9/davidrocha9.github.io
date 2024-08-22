@@ -19,35 +19,28 @@ menu:
   main:
     - name: Archive
       url: archives
-      weight: 3
+      weight: 5
     - name: Posts
       url: posts/
       weight: 1
-    - name: Projects
-      url: projects/
-      weight: 2
     - name: Resumé
       url: /documents/cv.pdf
       weight: 4
 
 params:
   homeInfoParams:
-    imageUrl: "1690057149591.jpeg"
+    imageUrl: "profile.png"
     Title: "About me"
     Content: >
-      - I am a software engineer with a deep passion for game development.
+      - I am passionate software engineer dedicated to building innovative solutions. Continuously learning and masterning new technologies to deliver the best products.
 
       - 
 
-      - Gaming played a pivotal role in my childhood, shaping my imagination and guiding my career path. I strive to create experiences that resonate with players in the same way the games of my youth influenced me.
+      - Currently working as a Junior Software Engineer @ [Arkadium](https://www.arkadium.com/). 
 
       -
 
-      - My vision is to craft games that inspire, connect, and leave a lasting impression on players of all ages.
-
-      -
-
-      - Currently working as a Junior Software Engineer @ [Arkadium](https://www.arkadium.com/).
+      - You can get in touch with me or view my resumé through the links below.
 
   # Social links
   socialIcons:
@@ -62,16 +55,20 @@ params:
 
   sectionPagesMenu: main
 
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowReadingTime: true
-  ShowPostNavLinks: true
+  ShowPostNavLinks: false
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
-  ShowRssButtonInSectionTermList: true
-  ShowToc: true
+  ShowRssButtonInSectionTermList: false
+  ShowToc: false
+  UseHugoToc: true
+  SearchHidden: true
+  PostAuthorMeta: true
+  ShowWordCount: false
 
 outputs:
   home:
     - HTML
     - RSS
-    - JSON # is necessary
+    - JSON

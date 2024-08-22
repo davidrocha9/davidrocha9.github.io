@@ -55,12 +55,12 @@
 {{- $license_css := (resources.Get "css/core/license.css") }}
 {{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
 
-{{- /* markup.highlight.noClasses should be set to `false` */}}
-{{- $chroma_styles := (resources.Get "css/includes/chroma-styles.css") }}
-{{- $chroma_mod := (resources.Get "css/includes/chroma-mod.css") }}
+{{- /* include `an-old-hope` if hljs is on */}}
+{{- $isHLJSdisabled := (site.Params.assets.disableHLJS | default false) }}
+{{- $hljs := (cond ($isHLJSdisabled) (".chroma { background-color: unset !important;}" | resources.FromString "assets/css/hljs-blank.css") (resources.Get "css/hljs/an-old-hope.min.css")) }}
 
 {{- /* order is important */}}
-{{- $core := (slice $theme_vars $reset $common $chroma_styles $chroma_mod $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
+{{- $core := (slice $theme_vars $reset $common $hljs $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify }}
 
 {{- /* bundle all required css */}}
@@ -89,6 +89,19 @@
 {{- end }}
 {{- end -}}
 
+{{- /* Highlight.js */}}
+{{- $isHLJSdisabled := (site.Params.assets.disableHLJS | default .Params.disableHLJS ) }}
+{{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (not $isHLJSdisabled)) }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $highlight := slice (resources.Get "js/highlight.min.js") | resources.Concat "assets/js/highlight.js" | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}"
+    onload="hljs.initHighlightingOnLoad();"></script>
+{{- else }}
+{{- $highlight := slice (resources.Get "js/highlight.min.js") | resources.Concat "assets/js/highlight.js" }}
+<script defer crossorigin="anonymous" src="{{ $highlight.RelPermalink }}" onload="hljs.initHighlightingOnLoad();"></script>
+{{- end }}
+{{- end }}
+
 {{- /* Favicons */}}
 <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
@@ -97,6 +110,10 @@
 <link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}">
 <meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
 <meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 {{- /* RSS */}}
 {{ range .AlternativeOutputFormats -}}
@@ -124,7 +141,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
+                --hljs-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
