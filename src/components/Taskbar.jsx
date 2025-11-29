@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import '@components/Taskbar.css';
 import xpLogo from '@assets/xp-logo.png';
+import '@components/Taskbar.css';
+import { useEffect, useState } from 'react';
 
 const Taskbar = () => {
   const [time, setTime] = useState(new Date());
@@ -22,9 +22,6 @@ const Taskbar = () => {
       </button>
 
       <div className="task-list">
-        <div className="task-item active">
-          <span>Welcome</span>
-        </div>
       </div>
       <div className="system-tray">
         <div className="clock">{formatTime(time)}</div>
