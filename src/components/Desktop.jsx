@@ -5,16 +5,14 @@ import projectsIcon from '../assets/icons/projects.png';
 import hobbiesIcon from '../assets/icons/hobbies.png';
 import biographyIcon from '../assets/icons/biography.png';
 import pdfIcon from '../assets/icons/pdf.png';
-import xpIcon from '../assets/xp-logo.png';
-import backIcon from '../assets/icons/back.png';
-import forwardIcon from '../assets/icons/forward.png';
-import folderUpIcon from '../assets/icons/folder-up.png';
-import searchIcon from '../assets/icons/search.png';
-import folderViewIcon from '../assets/icons/folder-view.png';
-import folderViewClassicIcon from '../assets/icons/folder-view-classic.png';
-import goIcon from '../assets/icons/go.png';
+import arkadiumPdf from '../pdf/arkadium.pdf';
+import beyourbestPdf from '../pdf/beyourbest.pdf';
+import zerozeroPdf from '../pdf/zerozero.pdf';
 
 import { useState } from 'react';
+import Window from './Window';
+import FolderWindow from './FolderWindow';
+import PDFViewer from './PDFViewer';
 
 const Desktop = () => {
   const icons = [
@@ -26,13 +24,15 @@ const Desktop = () => {
   ];
 
   const experienceContent = [
-    { id: 'pdf-beyourbest', label: 'beyourbest.pdf', icon: pdfIcon, type: 'pdf', title: 'BeYourBest - Work Experience', content: 'Software Engineer at BeYourBest.\n\nDeveloped high-performance VR training simulations...' },
-    { id: 'pdf-arkadium', label: 'arkadium.pdf', icon: pdfIcon, type: 'pdf', title: 'Arkadium - Work Experience', content: 'Frontend Developer at Arkadium.\n\nBuilt engaging web games and interactive experiences...' },
-    { id: 'pdf-zerozero', label: 'zerozero.pdf', icon: pdfIcon, type: 'pdf', title: 'ZeroZero - Work Experience', content: 'Full Stack Developer at ZeroZero.\n\nContributed to the leading sports statistics platform...' },
+    { id: 'pdf-beyourbest', label: 'beyourbest.pdf', icon: pdfIcon, type: 'pdf', title: 'BeYourBest - Work Experience', pdfUrl: beyourbestPdf },
+    { id: 'pdf-arkadium', label: 'arkadium.pdf', icon: pdfIcon, type: 'pdf', title: 'Arkadium - Work Experience', pdfUrl: arkadiumPdf },
+    { id: 'pdf-zerozero', label: 'zerozero.pdf', icon: pdfIcon, type: 'pdf', title: 'ZeroZero - Work Experience', pdfUrl: zerozeroPdf },
   ];
 
   const [selectedIconId, setSelectedIconId] = useState(null);
   const [openWindows, setOpenWindows] = useState([]);
+
+  const [activeWindowId, setActiveWindowId] = useState(null);
 
   const handleIconClick = (id, e) => {
     e.stopPropagation();
@@ -43,6 +43,11 @@ const Desktop = () => {
     if (!openWindows.find((w) => w.id === item.id)) {
       setOpenWindows([...openWindows, item]);
     }
+    setActiveWindowId(item.id);
+  };
+
+  const handleWindowFocus = (id) => {
+    setActiveWindowId(id);
   };
 
   const handleDesktopClick = () => {
@@ -51,26 +56,6 @@ const Desktop = () => {
 
   const closeWindow = (id) => {
     setOpenWindows(openWindows.filter((w) => w.id !== id));
-  };
-
-  const renderWindowContent = () => {
-    return (
-      <div className="window-icons" style={{ backgroundColor: "#f8fafc" }}>
-        {experienceContent.map((item) => (
-          <div
-            key={item.id}
-            className={`desktop-icon ${selectedIconId === item.id ? 'selected' : ''}`}
-            onClick={(e) => handleIconClick(item.id, e)}
-            onDoubleClick={() => handleIconDoubleClick(item)}
-          >
-            <div className="icon-image">
-              <img src={item.icon} alt={item.label} />
-            </div>
-            <div className="icon-label" style={{ color: 'black', textShadow: 'none' }}>{item.label}</div>
-          </div>
-        ))}
-      </div>
-    );
   };
 
   return (
@@ -92,102 +77,36 @@ const Desktop = () => {
       </div>
 
       {openWindows.map((window, index) => (
-        <div
+        <Window
           key={window.id}
-          className="window"
-          style={{
-            width: 600,
-            height: 500,
-            margin: 20,
-            position: 'absolute',
-            top: 50 + index * 30,
-            left: 200 + index * 30,
-            zIndex: 100 + index,
-            display: 'flex',
-            flexDirection: 'column'
-          }}
+          id={window.id}
+          title={window.label}
+          icon={window.icon}
+          onClose={() => closeWindow(window.id)}
+          initialPosition={{ x: 200 + index * 30, y: 50 + index * 30 }}
+          initialSize={window.type === 'pdf' ? { width: 800, height: 1000 } : { width: 1000, height: 800 }}
+          zIndex={activeWindowId === window.id ? 200 : 100 + index}
+          onFocus={() => handleWindowFocus(window.id)}
         >
-          <div className="title-bar">
-            <div className="title-bar-text" style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <img src={window.icon} alt={window.label} style={{ width: 25, height: 25 }} />
-              {window.label}
+          {window.type === 'folder' && (
+            <FolderWindow
+              window={window}
+              files={experienceContent}
+              selectedIconId={selectedIconId}
+              onIconClick={handleIconClick}
+              onIconDoubleClick={handleIconDoubleClick}
+            />
+          )}
+          {window.type === 'pdf' && (
+            <div className="window-body" style={{ margin: '0px' }}>
+              <PDFViewer
+                title={window.title}
+                content={window.content}
+                pdfUrl={window.pdfUrl}
+              />
             </div>
-            <div className="title-bar-controls">
-              <button aria-label="Minimize"></button>
-              <button aria-label="Maximize"></button>
-              <button aria-label="Close" onClick={() => closeWindow(window.id)}></button>
-            </div>
-          </div>
-
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 0, overflow: 'auto', padding: '0px 3px' }}>
-
-            {window.type === 'folder' && (
-              <div className="window-toolbar-wrapper">
-                <div className="menu-bar">
-                  <div className="menu-items">
-                    <span>File</span>
-                    <span>View</span>
-                    <span>Favorites</span>
-                    <span>Tools</span>
-                    <span>Help</span>
-                  </div>
-
-                  <div className="menu-xp-icon">
-                    <img src={xpIcon} alt="" className="folder-icon-small" style={{ width: '22px', height: '22px' }} />
-                  </div>
-                </div>
-                <div className="toolbar">
-                  <div className="nav-buttons-group">
-                    <div className="nav-btn back-btn">
-                      <img src={backIcon} alt="" style={{ width: '24px', height: '24px' }} />
-                      <span className="btn-text">Back</span>
-                      <span className="dropdown-arrow">▼</span>
-                    </div>
-                    <div className="nav-btn-dropdown">
-                      <img src={forwardIcon} alt="" style={{ width: '24px', height: '24px' }} />
-                      <span className="dropdown-arrow">▼</span>
-                    </div>
-                    <div className="nav-btn up-btn">
-                      <img src={folderUpIcon} alt="" style={{ width: '24px', height: '24px' }} />
-                    </div>
-                  </div>
-
-                  <div className="toolbar-separator"></div>
-
-                  <div className="toolbar-icon-btn">
-                    <img src={searchIcon} alt="" style={{ width: '24px', height: '24px' }} />
-                    <span className="btn-text">Search</span>
-                  </div>
-                  <div className="toolbar-icon-btn">
-                    <img src={folderViewIcon} alt="" style={{ width: '24px', height: '24px' }} />
-                    <span className="btn-text">Folders</span>
-                  </div>
-
-                  <div className="toolbar-separator"></div>
-
-                  <div className="views-btn">
-                    <img src={folderViewClassicIcon} alt="" style={{ width: '24px', height: '24px' }} />
-                    <span className="dropdown-arrow">▼</span>
-                  </div>
-                </div>
-                <div className="address-bar">
-                  <span className="address-label">Address</span>
-                  <div className="address-input">
-                    <img src={window.icon} alt="" className="folder-icon-small" style={{ width: '20px', height: '20px' }} />
-                    <span className="address-text">C:\Desktop\{window.label}</span>
-                  </div>
-                  <div className="go-button">
-                    <img src={goIcon} alt="" style={{ width: '24px', height: '24px' }} />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            <div className="window-body" style={{ overflow: 'auto', margin: '0px' }}>
-              {renderWindowContent(window)}
-            </div>
-          </div>
-        </div>
+          )}
+        </Window>
       ))}
     </div>
   );
