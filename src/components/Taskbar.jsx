@@ -1,13 +1,17 @@
-import xpLogo from '@assets/xp-logo.png';
+import startButton from '@assets/icons/start_btn.png';
+import welcomeIcon from '@assets/icons/welcome.webp';
+import volumeIcon from '@assets/icons/volume.png';
 import '@components/Taskbar.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-const Taskbar = ({ openWindows = [], activeWindowId, setActiveWindowId, minimizedWindows = new Set(), setMinimizedWindows }) => {
+const Taskbar = ({ openWindows = [], activeWindowId, setActiveWindowId, minimizedWindows = new Set(), setMinimizedWindows, showNotification, setShowNotification }) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   const formatTime = (date) => {
@@ -36,12 +40,19 @@ const Taskbar = ({ openWindows = [], activeWindowId, setActiveWindowId, minimize
     setActiveWindowId(id);
   };
 
+  const handleWelcomeClick = () => {
+    setShowNotification(true);
+  };
+
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+  };
+
   return (
     <div className="taskbar">
-      <button className="start-button">
-        <img src={xpLogo} alt="Windows Logo" className="start-logo" />
-        <span className="start-text">start</span>
-      </button>
+      <div className="start-button">
+        <img src={startButton} alt="Start" />
+      </div>
 
       <div className="task-list">
         {openWindows.map((window) => (
@@ -56,8 +67,32 @@ const Taskbar = ({ openWindows = [], activeWindowId, setActiveWindowId, minimize
         ))}
       </div>
       <div className="system-tray">
+        <img src={welcomeIcon} alt="Welcome" className="tray-icon" onClick={handleWelcomeClick} />
+        <img src={volumeIcon} alt="Volume" className="tray-icon" />
         <div className="clock">{formatTime(time)}</div>
       </div>
+
+      {showNotification && (
+        <div className="welcome-notification" role="alert">
+          <div className="notification-header">
+            <div className="notification-info">
+              <img src={welcomeIcon} alt="" className="notification-icon" />
+              <span className="notification-title">Welcome to my portfolio!</span>
+            </div>
+            <div 
+              className="notification-close" 
+              onClick={handleCloseNotification}
+              aria-label="Close notification"
+            >
+              ×
+            </div>
+          </div>
+          <div className="notification-body">
+            <p>I'm David Rocha, a 25 year-old software engineer with a passion for building things.</p>
+            <p>Feel free to explore my portfolio and get in touch with me.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

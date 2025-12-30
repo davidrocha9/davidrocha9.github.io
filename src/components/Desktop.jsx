@@ -4,6 +4,7 @@ import educationIcon from '../assets/icons/education.png';
 import projectsIcon from '../assets/icons/projects.png';
 import hobbiesIcon from '../assets/icons/hobbies.png';
 import biographyIcon from '../assets/icons/biography.png';
+import emailIcon from '../assets/icons/email.png';
 import pdfIcon from '../assets/icons/pdf.png';
 import myMusicIcon from '../assets/icons/my-music.png';
 import gamesIcon from '../assets/icons/games.png';
@@ -34,8 +35,10 @@ import SpotifyPlayer from './SpotifyPlayer';
 import LetterboxdFeed from './LetterboxdFeed';
 import ChessProfile from './ChessProfile';
 import Games from './Games';
+import MailWindow from './MailWindow';
 import '@components/BrowserWindow.css';
 import '@components/DocumentViewer.css';
+import '@components/MailWindow.css';
 
 const Desktop = ({ openWindows, setOpenWindows, activeWindowId, setActiveWindowId, minimizedWindows, setMinimizedWindows }) => {
   const experienceContent = [
@@ -49,8 +52,6 @@ const Desktop = ({ openWindows, setOpenWindows, activeWindowId, setActiveWindowI
     { id: 'browser-linhaviva', label: 'Linha Viva', icon: linhavivaIcon, type: 'browser', title: 'Linha Viva', url: 'https://linha-viva.vercel.app/' },
   ];
 
-  // Placeholder content for readme-like documents
-  // load football.md from assets (raw) and resolve local image references
   const footballContent = footballMd;
   const footballContentResolved = footballContent.replace(/src=["']football.png["']/g, `src="${footballImg}"`);
 
@@ -70,7 +71,7 @@ const Desktop = ({ openWindows, setOpenWindows, activeWindowId, setActiveWindowI
     { id: 'education', label: 'Education', icon: educationIcon, type: 'pdf', title: 'Education', pdfUrl: educationPdf },
     { id: 3, label: 'Projects', icon: projectsIcon, type: 'folder', files: projectsContent },
     { id: 4, label: 'Hobbies', icon: hobbiesIcon, type: 'folder', files: hobbiesContent },
-    { id: 5, label: 'Biography', icon: biographyIcon, type: 'folder' },
+    { id: 5, label: 'Mail', icon: emailIcon, type: 'mail', recipient: 'davidsoutorocha@gmail.com' },
   ];
 
   const [selectedIconId, setSelectedIconId] = useState(null);
@@ -287,6 +288,11 @@ const Desktop = ({ openWindows, setOpenWindows, activeWindowId, setActiveWindowI
             {win.type === 'chess' && (
               <div className="window-body" style={{ margin: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <ChessProfile username={win.username} />
+              </div>
+            )}
+            {win.type === 'mail' && (
+              <div className="window-body" style={{ margin: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <MailWindow recipient={win.recipient} />
               </div>
             )}
           </Window>

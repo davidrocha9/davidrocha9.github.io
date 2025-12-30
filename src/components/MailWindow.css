@@ -1,0 +1,105 @@
+.mail-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f0f0f0;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  overflow: hidden; /* Prevent content from spilling out */
+}
+
+.mail-menu-bar {
+  display: flex;
+  background-color: #ece9d8;
+  padding: 2px 4px;
+  border-bottom: 1px solid #aca899;
+}
+
+.mail-menu-bar span {
+  padding: 0 5px;
+  cursor: default;
+}
+
+.mail-menu-bar span:hover {
+  background-color: #316ac5;
+  color: #fff;
+}
+
+.mail-toolbar {
+  /* This was previously for the send button, now it's mostly empty or for other icons */
+  background-color: #ece9d8;
+  padding: 4px;
+  border-bottom: 1px solid #aca899;
+  min-height: 28px; /* Maintain some height even if empty */
+}
+
+.mail-button {
+  background-color: #f5f5f5;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+}
+
+.mail-button.send-button {
+  font-weight: bold;
+  min-width: 75px; /* Standard button width */
+}
+
+.mail-header {
+  background-color: #ECE9D8;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.mail-header-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.mail-header-field label {
+  width: 60px;
+  color: #666;
+  flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+.mail-header-field input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  padding: 4px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+}
+
+.mail-body {
+  flex-grow: 1;
+  padding: 8px;
+  overflow: auto; /* Allow scrolling for content */
+  display: flex; /* Make textarea take full height */
+  background-color: #ECE9D8;
+}
+
+.mail-body textarea {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding: 4px;
+  resize: none;
+  box-sizing: border-box;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+}
+
+.mail-footer {
+  display: flex;
+  justify-content: flex-end; /* Push button to the right */
+  align-items: center;
+  background-color: #ece9d8;
+  padding: 4px;
+  border-top: 1px solid #aca899;
+  flex-shrink: 0; /* Prevent shrinking */
+}
