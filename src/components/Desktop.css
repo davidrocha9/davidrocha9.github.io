@@ -49,7 +49,6 @@
 .icon-label {
   color: white;
   text-shadow: 1px 1px 2px black;
-  font-family: 'Tahoma', sans-serif;
   font-size: 12px;
   text-align: center;
   line-height: 1.2;
@@ -83,7 +82,6 @@
   padding: 2px 5px;
   display: flex;
   gap: 10px;
-  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
 }
 
@@ -94,7 +92,6 @@
   flex-grow: 1;
   overflow-y: auto;
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  font-family: 'Times New Roman', serif;
   color: black;
 }
 
@@ -110,7 +107,6 @@
   padding: 2px 0 2px 0;
   display: flex;
   align-items: center;
-  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
   background-color: #ECE9D8;
 }
@@ -143,8 +139,8 @@
   padding: 3px 2px;
   display: flex;
   align-items: center;
-  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
+  background-color: #ECE9D8;
 }
 
 .nav-buttons-group {
@@ -160,7 +156,6 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
   color: #000;
   height: 24px;
@@ -207,7 +202,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
   color: #000;
   height: 24px;
@@ -244,9 +238,9 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
-  padding: 0px 0px 0px 5px
+  padding: 0px 0px 0px 5px;
+  background-color: #ECE9D8;
 }
 
 .address-label {
@@ -266,6 +260,16 @@
   padding: 0px 6px;
 }
 
+/* Make any input inside the address-input look like folder address (no border) */
+.address-input input,
+.address-input textarea {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 11px;
+  color: #000;
+}
+
 .folder-icon-small {
   font-size: 12px;
 }
@@ -278,7 +282,6 @@
 .go-button {
   padding: 2px 7px;
   cursor: pointer;
-  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
   color: #000;
   height: 22px;
@@ -504,10 +507,13 @@
 .window-view-icon {
   flex-direction: row !important;
   align-items: center !important;
-  width: auto !important;
+  /* Fixed width so folder entries form a consistent grid */
+  width: 160px !important;
   height: auto !important;
-  padding: 2px !important;
+  padding: 6px 8px !important;
+  box-sizing: border-box;
   flex-shrink: 0;
+  gap: 5px;
 }
 
 .window-view-icon .icon-image {
@@ -523,6 +529,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Ensure labels inside folder entries truncate and don't push width */
+.window-view-icon .icon-info .icon-label {
+  max-width: calc(220px - 50px - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: left;
 }
 
 /* Resize Handles */

@@ -2,99 +2,237 @@
   width: 100%;
   height: 30px;
   flex-shrink: 0;
-  background: linear-gradient(to bottom, var(--color-taskbar-bg-1) 0%, var(--color-taskbar-bg-2) 9%, var(--color-taskbar-bg-1) 18%, var(--color-taskbar-bg-1) 92%, var(--color-taskbar-bg-3) 100%);
-    border-top: 1px solid var(--color-taskbar-border);
+  background: linear-gradient(to bottom, 
+    #1f5bce 0%, 
+    #3a7dea 3%, 
+    #4e8def 6%, 
+    #448ce8 10%, 
+    #2b6dd8 12%, 
+    #2361cf 15%, 
+    #245edb 18%, 
+    #245edb 88%, 
+    #1941a5 94%, 
+    #1941a5 100%
+  );
+  border-top: 1px solid #0d3a8e;
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   padding: 0;
   z-index: 1000;
-  font-family: 'Tahoma', sans-serif;
   user-select: none;
 }
 
 .start-button {
   height: 100%;
   width: auto;
-  min-width: 100px;
-  background: linear-gradient(to bottom, var(--color-start-btn-bg-1) 0%, var(--color-start-btn-bg-2) 10%, var(--color-start-btn-bg-1) 100%);
-    border: 1px solid var(--color-start-btn-border);
-  border-left: none;
-  border-radius: 0 10px 10px 0;
+  min-width: 105px;
+  background: linear-gradient(to bottom, 
+    #3a9335 0%,
+    #39a436 3%,
+    #2da12c 8%,
+    #2da12c 40%,
+    #259424 42%,
+    #228e21 50%,
+    #1c8a1a 52%,
+    #1a8a19 60%,
+    #168515 80%,
+    #138012 90%,
+    #0f7c0e 100%
+  );
+  border: none;
+  border-top: 1px solid #5eac4c;
+  border-right: 2px solid #0e4d0b;
+  border-bottom: 1px solid #0a3d08;
+  border-radius: 0 7px 7px 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 15px 0 5px;
-  box-shadow: 1px 1px 2px var(--color-shadow-dark), inset 0 1px 0 var(--color-shadow-light);
+  padding: 0 14px 0 6px;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 8px;
+  margin-left: -1px;
   position: relative;
   outline: none;
+  box-shadow: 
+    inset 1px 0 0 rgba(255, 255, 255, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 2px rgba(0, 50, 0, 0.35),
+    2px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.start-button::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 9px;
+  height: 45%;
+  width: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.35) 0%, 
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 0 5px 0 0;
+  pointer-events: none;
+}
+
+.start-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    #2a6d1f 0%,
+    #1f5a18 50%,
+    #154a10 100%
+  );
+  pointer-events: none;
 }
 
 .start-button:hover {
-  filter: brightness(1.1);
-  box-shadow: 1px 1px 2px var(--color-shadow-dark), inset 0 1px 0 var(--color-shadow-light) !important;
+  background: linear-gradient(to bottom, 
+    #4aa845 0%,
+    #48b446 3%,
+    #3db13c 8%,
+    #3db13c 40%,
+    #35a434 42%,
+    #329e31 50%,
+    #2c9a2a 52%,
+    #2a9a29 60%,
+    #269525 80%,
+    #239022 90%,
+    #1f8c1e 100%
+  );
 }
 
-.start-button img {
+.start-button:active {
+  background: linear-gradient(to bottom, 
+    #2a7325 0%,
+    #298426 3%,
+    #1d811c 8%,
+    #1d811c 40%,
+    #157414 42%,
+    #126e11 50%,
+    #0c6a0a 52%,
+    #0a6a09 60%,
+    #066505 80%,
+    #036002 90%,
+    #005c00 100%
+  );
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 1px 0 2px rgba(0, 0, 0, 0.2),
+    2px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.start-button .start-logo {
   height: 20px;
   width: 20px;
   margin-right: 5px;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
-.start-button span {
+.start-button .start-text {
   color: white;
   font-weight: bold;
   font-style: italic;
-  font-size: 16px;
-  text-shadow: 1px 1px 2px var(--color-text-shadow);
-  text-transform: capitalize;
+  font-size: 21px;
+  letter-spacing: 1px;
+  text-shadow: 
+    1px 1px 0 rgba(0, 80, 0, 0.8),
+    1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-transform: lowercase;
 }
 
 .task-list {
   flex-grow: 1;
   display: flex;
-  align-items: flex-end;
-  padding: 0 5px 0 5px;
-  gap: 2px;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 3px;
 }
 
 .task-item {
-  background: var(--color-task-item-bg);
+  background: linear-gradient(to bottom, 
+    #3c81f3 0%, 
+    #2e6ad9 50%, 
+    #2d69d8 51%, 
+    #1f53b3 100%
+  );
   color: white;
-  border: 1px solid var(--color-task-item-border);
-  border-radius: 2px;
-  width: 125px;
-  height: 25px;
-  padding: 0px 10px 0px 10px;
+  border: 1px solid #1e4499;
+  border-radius: 3px;
+  min-width: 140px;
+  max-width: 180px;
+  height: 22px;
+  padding: 0 8px;
   display: flex;
   align-items: center;
   font-size: 11px;
   cursor: pointer;
-  box-shadow: inset 0 0 2px var(--color-task-item-shadow);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .task-item:hover {
-  background: var(--color-task-item-hover);
+  background: linear-gradient(to bottom, 
+    #5394ff 0%, 
+    #4080e9 50%, 
+    #3f7fe8 51%, 
+    #3069c3 100%
+  );
 }
 
 .task-item.active {
-  background: var(--color-task-item-active);
-    box-shadow: inset 0 0 5px var(--color-task-item-active-shadow);
+  background: linear-gradient(to bottom, 
+    #1e52b7 0%, 
+    #1a4699 50%, 
+    #194598 51%, 
+    #133880 100%
+  );
+  box-shadow: 
+    inset 0 2px 3px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  border-color: #0f2d66;
+}
+
+.task-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+.task-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .system-tray {
-  background: var(--color-system-tray-bg);
-    border-left: 1px solid var(--color-system-tray-border);
+  background: linear-gradient(to bottom, 
+    #0f8ded 0%, 
+    #0978d4 50%, 
+    #0873cd 51%, 
+    #065daa 100%
+  );
+  border-left: 2px solid #0e4ca7;
   height: 100%;
-  padding: 0 10px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
   color: white;
   font-size: 11px;
-  box-shadow: inset 2px 2px 2px var(--color-system-tray-shadow);
+  box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.2);
 }
 
 .clock {
-  margin-left: 5px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
 }

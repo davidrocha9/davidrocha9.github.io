@@ -1,0 +1,196 @@
+.discogs-collection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.discogs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.discogs-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.discogs-count {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.discogs-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.discogs-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.discogs-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.discogs-cover {
+  aspect-ratio: 1;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discogs-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discogs-no-cover {
+  font-size: 48px;
+  opacity: 0.3;
+}
+
+.discogs-info {
+  padding: 10px;
+}
+
+.discogs-title {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.discogs-artist {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.discogs-year {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.discogs-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.discogs-pagination button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.discogs-pagination button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.discogs-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.discogs-pagination span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.discogs-footer {
+  padding: 12px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.discogs-footer button {
+  background: #ff5500;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.discogs-footer button:hover {
+  background: #ff7733;
+}
+
+/* Loading state */
+.discogs-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.discogs-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ff5500;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error state */
+.discogs-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+.discogs-error button {
+  background: #ff5500;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}

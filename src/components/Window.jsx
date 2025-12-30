@@ -4,9 +4,11 @@ const Window = ({
   title, 
   icon, 
   onClose, 
+  onMinimize,
   children, 
   initialPosition = { x: 200, y: 50 }, 
   initialSize = { width: 600, height: 500 }, 
+  maxSize = null,
   zIndex, 
   onFocus 
 }) => {
@@ -15,10 +17,12 @@ const Window = ({
   const [isDragging, setIsDragging] = useState(false);
   const [isResizing, setIsResizing] = useState(false);
   const [resizeDirection, setResizeDirection] = useState(null);
+  const [isMaximized, setIsMaximized] = useState(false);
   
   const dragStartPos = useRef({ x: 0, y: 0 });
   const windowStartPos = useRef({ x: 0, y: 0 });
   const windowStartSize = useRef({ width: 0, height: 0 });
+  const preMaximizeState = useRef({ position: null, size: null });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -49,8 +53,11 @@ const Window = ({
 
         if (resizeDirection.includes('e')) {
           newWidth += dx;
+          if (maxSize && newWidth > maxSize.width) {
+            newWidth = maxSize.width;
+          }
           if (newX + newWidth > window.innerWidth) {
-            newWidth = window.innerWidth - newX;
+            newWidth = Math.min(newWidth, window.innerWidth - newX);
           }
         }
         
@@ -64,8 +71,11 @@ const Window = ({
 
         if (resizeDirection.includes('s')) {
           newHeight += dy;
+          if (maxSize && newHeight > maxSize.height) {
+            newHeight = maxSize.height;
+          }
           if (newY + newHeight > window.innerHeight - 30) {
-            newHeight = (window.innerHeight - 30) - newY;
+            newHeight = Math.min(newHeight, (window.innerHeight - 30) - newY);
           }
         }
         
@@ -79,6 +89,11 @@ const Window = ({
 
         if (newWidth < 600) newWidth = 600;
         if (newHeight < 500) newHeight = 500;
+
+        if (maxSize) {
+          if (newWidth > maxSize.width) newWidth = maxSize.width;
+          if (newHeight > maxSize.height) newHeight = maxSize.height;
+        }
 
         if (resizeDirection.includes('w')) {
           newX = (windowStartPos.current.x + windowStartSize.current.width) - newWidth;
@@ -114,6 +129,8 @@ const Window = ({
 
   const startDrag = (e) => {
     if (e.target.tagName === 'BUTTON') return;
+    if (isMaximized) return; // Don't allow dragging when maximized
+    e.preventDefault();
     
     setIsDragging(true);
     dragStartPos.current = { x: e.clientX, y: e.clientY };
@@ -121,12 +138,51 @@ const Window = ({
   };
 
   const startResize = (direction, e) => {
+    if (isMaximized) return;
     e.stopPropagation();
+    e.preventDefault();
     setIsResizing(true);
     setResizeDirection(direction);
     dragStartPos.current = { x: e.clientX, y: e.clientY };
     windowStartPos.current = { ...position };
     windowStartSize.current = { ...size };
+  };
+
+  const handleMinimize = (e) => {
+    e.stopPropagation();
+    if (onMinimize) onMinimize();
+  };
+
+  const handleMaximize = (e) => {
+    e.stopPropagation();
+    if (isMaximized) {
+      // Restore
+      if (preMaximizeState.current.position && preMaximizeState.current.size) {
+        setPosition(preMaximizeState.current.position);
+        setSize(preMaximizeState.current.size);
+      }
+      setIsMaximized(false);
+    } else {
+      // Maximize
+      preMaximizeState.current = { position: { ...position }, size: { ...size } };
+      // Prefer measuring the desktop container so the window fills the available app area
+      const desktopEl = document.querySelector('.desktop');
+      if (desktopEl) {
+        // Use clientWidth/clientHeight which gives us the content area (excludes padding)
+        const availW = desktopEl.clientWidth - 20;
+        const availH = desktopEl.clientHeight;
+        
+        // Position at 0,0 - this is relative to the content area (inside padding)
+        setPosition({ x: 0, y: 0 });
+        setSize({ width: availW, height: availH });
+      } else {
+        const maxW = maxSize ? Math.min(window.innerWidth, maxSize.width) : window.innerWidth;
+        const maxH = maxSize ? Math.min(window.innerHeight - 30, maxSize.height) : window.innerHeight - 30;
+        setPosition({ x: 0, y: 0 });
+        setSize({ width: maxW, height: maxH });
+      }
+      setIsMaximized(true);
+    }
   };
 
   return (
@@ -140,7 +196,9 @@ const Window = ({
         zIndex: zIndex,
         position: 'absolute',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        maxWidth: isMaximized ? undefined : (maxSize ? `${maxSize.width}px` : undefined),
+        maxHeight: isMaximized ? undefined : (maxSize ? `${maxSize.height}px` : undefined),
       }}
       onMouseDown={handleMouseDown}
     >
@@ -153,14 +211,14 @@ const Window = ({
       <div className="resize-handle se" onMouseDown={(e) => startResize('se', e)} />
       <div className="resize-handle sw" onMouseDown={(e) => startResize('sw', e)} />
 
-      <div className="title-bar" onMouseDown={startDrag} style={{ userSelect: 'none', cursor: 'default' }}>
-        <div className="title-bar-text" style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <img src={icon} alt={title} style={{ width: 25, height: 25 }} />
+      <div className="title-bar" onMouseDown={startDrag} onDoubleClick={handleMaximize} style={{ userSelect: 'none', cursor: 'default' }}>
+        <div className="title-bar-text" style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'Tahoma, sans-serif' }}>
+          <img src={icon} alt={title} style={{ width: 16, height: 16 }} />
           {title}
         </div>
         <div className="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
+          <button aria-label="Minimize" onClick={handleMinimize}></button>
+          <button aria-label={isMaximized ? "Restore" : "Maximize"} onClick={handleMaximize}></button>
           <button aria-label="Close" onClick={onClose}></button>
         </div>
       </div>
