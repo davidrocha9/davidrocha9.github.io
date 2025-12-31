@@ -1,0 +1,104 @@
+.image-viewer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  user-select: none;
+  overflow: hidden;
+}
+
+.image-viewer-main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.image-viewer-content {
+  transition: transform 0.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-viewer-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-viewer-toolbar {
+  background: #ECE9D8;
+  border-top: 1px solid #ACA899;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+}
+
+.image-viewer-toolbar-container {
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  border: 1px solid #ACA899;
+  border-radius: 2px;
+  padding: 2px;
+  gap: 4px;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.image-viewer-toolbar-button {
+  padding: 4px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+}
+
+.image-viewer-toolbar-button:hover:not(:disabled) {
+  background: #E0E0E0;
+}
+
+.image-viewer-toolbar-button:active:not(:disabled) {
+  background: #D0D0D0;
+}
+
+.image-viewer-toolbar-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.image-viewer-toolbar-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.image-viewer-toolbar-button.zoom-button {
+  color: #1e3a8a;
+}
+
+.image-viewer-toolbar-button.delete-button svg {
+  color: #dc2626;
+}
+
+.image-viewer-toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background-color: #ACA899;
+  margin: 0 2px;
+}
+
+.image-viewer-toolbar-button img {
+  width: 20px;
+  height: 20px;
+}
+
+

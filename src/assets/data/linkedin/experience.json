@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Software Engineer",
+    "company": "Be Your Best™",
+    "date": "Jan 2026 - Present",
+    "description": "Working on the Chrome team to improve browser performance and user experience."
+  },
+  {
+    "title": "Junior Software Engineer",
+    "company": "Be Your Best™",
+    "date": "Jan 2025 - Dec 2025",
+    "description": "Developed new features for the Messenger app."
+  },
+  {
+    "title": "Junior Software Engineer",
+    "company": "Arkadium",
+    "date": "Oct 2023 - Dec 2024",
+    "description": "Developed new features for the Messenger app."
+  },
+  {
+    "title": "Intern",
+    "company": "ZeroZero",
+    "date": "Feb - Jul 2023",
+    "description": "Developed MSc Thesis focused on a sports-news NLG system."
+  }
+]

@@ -1,0 +1,50 @@
+export { default as xpIcon } from './xp-logo.png';
+export { default as blissImage } from './bliss.jpg';
+
+export { default as footballImage } from './hobbies/football.png';
+export { default as mapImage } from './hobbies/map.png';
+
+export { default as dulcecastImage } from './projects/dulcecast.png';
+export { default as linhavivaImage } from './projects/linhaviva.png';
+
+export { default as backIcon } from './icons/back.png';
+export { default as forwardIcon } from './icons/forward.png';
+export { default as searchIcon } from './icons/search.png';
+export { default as goIcon } from './icons/go.png';
+export { default as ieRefresh } from './icons/ie-refresh.png';
+export { default as ieStop } from './icons/ie-stop.png';
+export { default as ieHome } from './icons/ie-home.png';
+export { default as favoritesIcon } from './icons/favorites.png';
+export { default as ieHistory } from './icons/ie-history.png';
+export { default as emailIcon } from './icons/email.png';
+export { default as faxIcon } from './icons/fax.png';
+export { default as windowsMessengerIcon } from './icons/windows-messenger.png';
+
+export { default as biographyIcon } from './icons/biography.png';
+export { default as chessIcon } from './icons/chess.png';
+export { default as educationIcon } from './icons/education.png';
+export { default as experienceIcon } from './icons/experience.png';
+export { default as folderUpIcon } from './icons/folder-up.png';
+export { default as folderViewClassicIcon } from './icons/folder-view-classic.png';
+export { default as folderViewIcon } from './icons/folder-view.png';
+export { default as footballIcon } from './icons/football.png';
+export { default as gamesIcon } from './icons/games.png';
+export { default as githubIcon } from './icons/github.png';
+export { default as hobbiesIcon } from './icons/hobbies.png';
+export { default as linkedinIcon } from './icons/linkedin.png';
+export { default as mpcIcon } from './icons/mpc.png';
+export { default as myComputerIcon } from './icons/my-computer.png';
+export { default as myMusicIcon } from './icons/my-music.png';
+export { default as myNetworkPlacesIcon } from './icons/my-network-places.png';
+export { default as myPicturesIcon } from './icons/my-pictures.png';
+export { default as newFolderIcon } from './icons/new-folder.png';
+export { default as pdfIcon } from './icons/pdf.png';
+export { default as programsIcon } from './icons/programs.png';
+export { default as projectsIcon } from './icons/projects.png';
+export { default as publishToWebIcon } from './icons/publish-to-web.png';
+export { default as sharedFolderIcon } from './icons/shared-folder.png';
+export { default as startMenuProgramsAltIcon } from './icons/start-menu-programs-alt.png';
+export { default as startBtnIcon } from './icons/start_btn.png';
+export { default as urlIcon } from './icons/url.png';
+export { default as volumeIcon } from './icons/volume.png';
+export { default as welcomeImage } from './icons/welcome.webp';

@@ -1,0 +1,21 @@
+[
+  {
+    "institution": "Faculdade of Engineering of the University of Porto",
+    "degree": "Master's degree, Informatics and Computing Engineering",
+    "date": "Sep 2021 - Jul 2023",
+    "grade": "18/20"
+  },
+  {
+    "institution": "University of Lodz",
+    "degree": "Master's degree, Informatics and Computing Engineering",
+    "date": "Oct 2022 - Feb 2023",
+    "grade": "4.81/5",
+    "description": "Erasmus+ Mobility Programme"
+  },
+  {
+    "institution": "Faculdade of Engineering of the University of Porto",
+    "degree": "Bachelor's degree, Informatics and Computing Engineering",
+    "date": "Sep 2018 - Jul 2021",
+    "grade": "15/20"
+  }
+]

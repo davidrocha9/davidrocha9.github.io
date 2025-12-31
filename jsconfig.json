@@ -3,8 +3,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@enums/*": ["src/enums/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@styles/*": ["src/styles/*"]
     }
   },

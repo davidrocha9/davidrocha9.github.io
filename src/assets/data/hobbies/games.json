@@ -1,0 +1,38 @@
+[
+  {
+    "title": "The Witcher 3: Wild Hunt",
+    "year": "2015",
+    "link": "https://thewitcher.com/en/witcher3",
+    "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg"
+  },
+  {
+    "title": "Stardew Valley",
+    "year": "2016",
+    "link": "https://www.stardewvalley.net/",
+    "image": "https://upload.wikimedia.org/wikipedia/en/f/fd/Logo_of_Stardew_Valley.png"
+  },
+  {
+    "title": "Red Dead Redemption 2",
+    "year": "2018",
+    "link": "https://www.rockstargames.com/reddeadredemption2",
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
+  },
+  {
+    "title": "Cyberpunk 2077",
+    "year": "2020",
+    "link": "https://www.cyberpunk.net/",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+  },
+  {
+    "title": "The Last of Us Part I",
+    "year": "2013",
+    "link": "https://www.playstation.com/en-us/games/the-last-of-us-part-i/",
+    "image": "https://upload.wikimedia.org/wikipedia/en/8/86/The_Last_of_Us_Part_I_cover.jpg"
+  },
+  {
+    "title": "The Last of Us Part II",
+    "year": "2020",
+    "link": "https://www.playstation.com/en-us/games/the-last-of-us-part-ii/",
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/4f/TLOU_P2_Box_Art_2.png"
+  }
+]
