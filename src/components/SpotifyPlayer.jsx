@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import './SpotifyPlayer.css';
 
 const SpotifyPlayer = ({ username = 'davidrocha9' }) => {

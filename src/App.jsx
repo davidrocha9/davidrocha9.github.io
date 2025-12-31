@@ -8,10 +8,9 @@ function App() {
   const [openWindows, setOpenWindows] = useState([]);
   const [activeWindowId, setActiveWindowId] = useState(null);
   const [minimizedWindows, setMinimizedWindows] = useState(new Set());
-  const [showNotification, setShowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(true);
 
   useEffect(() => {
-    setShowNotification(true);
     const timer = setTimeout(() => {
       setShowNotification(false);
     }, 10000); // Show for 10 seconds

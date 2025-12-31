@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import xpIcon from '../assets/xp-logo.png';
 import backIcon from '../assets/icons/back.png';
 import forwardIcon from '../assets/icons/forward.png';
@@ -22,6 +22,8 @@ const BrowserWindow = ({ url, title, icon }) => {
   const timeoutRef = useRef(null);
 
   const handleGo = () => {
+    setIsLoading(true);
+    setMaybeBlocked(false);
     setCurrentUrl(inputUrl);
   };
 
@@ -31,19 +33,18 @@ const BrowserWindow = ({ url, title, icon }) => {
     }
   };
 
-  const openExternally = (u) => {
+  const openExternally = useCallback((u) => {
     const target = u || currentUrl;
     try {
       window.open(target, '_blank', 'noopener,noreferrer');
-    } catch (e) {
+    } catch (error) {
+      console.error("Failed to open externally, falling back to window.location.href:", error);
       // fallback
       window.location.href = target;
     }
-  };
+  }, [currentUrl]);
 
   useEffect(() => {
-    setIsLoading(true);
-    setMaybeBlocked(false);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     // If the target explicitly disallows framing (e.g. sites with X-Frame-Options),
@@ -61,7 +62,7 @@ const BrowserWindow = ({ url, title, icon }) => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentUrl]);
+  }, [currentUrl, isLoading, openExternally]);
 
   return (
     <div className="browser-window">

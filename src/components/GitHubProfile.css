@@ -1,0 +1,202 @@
+.github-profile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f6f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #24292e;
+}
+
+.github-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e1e4e8;
+  background-color: #fff;
+}
+
+.github-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.github-tabs button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.github-tabs button.active {
+  font-weight: 600;
+  border-bottom: 2px solid #f9826c;
+}
+
+.github-content {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
+
+.github-sidebar {
+  width: 250px;
+  padding: 24px;
+  border-right: 1px solid #e1e4e8;
+  text-align: center;
+  background-color: #fff;
+}
+
+.github-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.github-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.github-username {
+  font-size: 20px;
+  font-weight: 300;
+  color: #586069;
+  margin: 4px 0 16px;
+}
+
+.github-bio {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.github-stats {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.github-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.github-view-button {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #e1e4e8;
+  background-color: #fafbfc;
+  cursor: pointer;
+}
+
+.github-main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.github-overview h3 {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.github-repos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.github-repo-card {
+  padding: 16px;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.github-repo-card h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #0366d6;
+}
+
+.github-repo-card p {
+  font-size: 12px;
+  margin: 0 0 16px;
+  color: #586069;
+  height: 40px;
+  overflow: hidden;
+}
+
+.github-repo-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #586069;
+}
+
+/* Styles for the full repositories list */
+.github-repos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.github-repo-item {
+  padding: 12px 16px;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.github-repo-item h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: #0366d6;
+}
+
+.github-repo-item p {
+  font-size: 13px;
+  margin: 0 0 8px;
+  color: #586069;
+}
+
+.github-loading,
+.github-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 16px;
+}
+
+.github-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -2,7 +2,7 @@ import startButton from '@assets/icons/start_btn.png';
 import welcomeIcon from '@assets/icons/welcome.webp';
 import volumeIcon from '@assets/icons/volume.png';
 import '@components/Taskbar.css';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 const Taskbar = ({ openWindows = [], activeWindowId, setActiveWindowId, minimizedWindows = new Set(), setMinimizedWindows, showNotification, setShowNotification }) => {
   const [time, setTime] = useState(new Date());
@@ -88,7 +88,7 @@ const Taskbar = ({ openWindows = [], activeWindowId, setActiveWindowId, minimize
             </div>
           </div>
           <div className="notification-body">
-            <p>I'm David Rocha, a 25 year-old software engineer with a passion for building things.</p>
+            <p>I'm David Rocha, a 25 year-old software engineer with a passion for building cool stuff.</p>
             <p>Feel free to explore my portfolio and get in touch with me.</p>
           </div>
         </div>

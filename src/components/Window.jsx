@@ -121,7 +121,7 @@ const Window = ({
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging, isResizing, resizeDirection, size]);
+  }, [isDragging, isResizing, resizeDirection, size, maxSize]);
 
   const handleMouseDown = () => {
     if (onFocus) onFocus();

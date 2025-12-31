@@ -1,4 +1,4 @@
-import xpIcon from '../assets/xp-logo.png';
+
 
 const DocumentViewer = ({ title, content }) => {
   return (

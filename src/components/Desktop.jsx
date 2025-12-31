@@ -3,8 +3,9 @@ import experienceIcon from '../assets/icons/experience.png';
 import educationIcon from '../assets/icons/education.png';
 import projectsIcon from '../assets/icons/projects.png';
 import hobbiesIcon from '../assets/icons/hobbies.png';
-import biographyIcon from '../assets/icons/biography.png';
 import emailIcon from '../assets/icons/email.png';
+import linkedinIcon from '../assets/icons/linkedin.png';
+import githubIcon from '../assets/icons/github.png';
 import pdfIcon from '../assets/icons/pdf.png';
 import myMusicIcon from '../assets/icons/my-music.png';
 import gamesIcon from '../assets/icons/games.png';
@@ -14,10 +15,12 @@ import mpcIcon from '../assets/icons/mpc.png';
 import myPicturesIcon from '../assets/icons/my-pictures.png';
 import dulceIcon from '../assets/projects/dulcecast.png';
 import linhavivaIcon from '../assets/projects/linhaviva.png';
+
 import arkadiumPdf from '../pdf/arkadium.pdf';
 import beyourbestPdf from '../pdf/beyourbest.pdf';
 import zerozeroPdf from '../pdf/zerozero.pdf';
 import educationPdf from '../pdf/education.pdf';
+import resumePdf from '../pdf/resume.pdf';
 
 import { useState, useRef } from 'react';
 import Window from './Window';
@@ -36,6 +39,8 @@ import LetterboxdFeed from './LetterboxdFeed';
 import ChessProfile from './ChessProfile';
 import Games from './Games';
 import MailWindow from './MailWindow';
+import GitHubProfile from './GitHubProfile';
+import LinkedInProfile from './LinkedInProfile';
 import '@components/BrowserWindow.css';
 import '@components/DocumentViewer.css';
 import '@components/MailWindow.css';
@@ -69,9 +74,12 @@ const Desktop = ({ openWindows, setOpenWindows, activeWindowId, setActiveWindowI
   const icons = [
     { id: 1, label: 'Experience', icon: experienceIcon, type: 'folder', files: experienceContent },
     { id: 'education', label: 'Education', icon: educationIcon, type: 'pdf', title: 'Education', pdfUrl: educationPdf },
+    { id: 'resume', label: 'Full Resumé', icon: pdfIcon, type: 'pdf', title: 'Full Resumé', pdfUrl: resumePdf },
     { id: 3, label: 'Projects', icon: projectsIcon, type: 'folder', files: projectsContent },
     { id: 4, label: 'Hobbies', icon: hobbiesIcon, type: 'folder', files: hobbiesContent },
     { id: 5, label: 'Mail', icon: emailIcon, type: 'mail', recipient: 'davidsoutorocha@gmail.com' },
+    { id: 'linkedin', label: 'LinkedIn', icon: linkedinIcon, type: 'linkedin', username: 'davidrocha9' },
+    { id: 'github', label: 'GitHub', icon: githubIcon, type: 'github', username: 'davidrocha9' },
   ];
 
   const [selectedIconId, setSelectedIconId] = useState(null);
@@ -293,6 +301,16 @@ const Desktop = ({ openWindows, setOpenWindows, activeWindowId, setActiveWindowI
             {win.type === 'mail' && (
               <div className="window-body" style={{ margin: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <MailWindow recipient={win.recipient} />
+              </div>
+            )}
+            {win.type === 'github' && (
+              <div className="window-body" style={{ margin: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <GitHubProfile username={win.username} />
+              </div>
+            )}
+            {win.type === 'linkedin' && (
+              <div className="window-body" style={{ margin: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <LinkedInProfile username={win.username} />
               </div>
             )}
           </Window>
