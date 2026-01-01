@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { useChessProfile } from '@hooks/useChessProfile';
+import { usePrefetchedChess } from '@contexts/DataPrefetchContext';
 import { ChessTabs } from '@components/hobbies/chess';
 
 const ChessContext = createContext();
@@ -13,13 +13,11 @@ export const useChessContext = () => {
 };
 
 export const ChessProvider = ({ children }) => {
-  const USERNAME = 'davidrocha_9';
-  const chessData = useChessProfile(USERNAME);
+  const chessData = usePrefetchedChess();
   const [activeTab, setActiveTab] = useState(ChessTabs.STATS);
 
   const value = {
     ...chessData,
-    username: USERNAME,
     activeTab,
     setActiveTab,
   };

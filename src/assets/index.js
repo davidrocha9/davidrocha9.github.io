@@ -48,3 +48,5 @@ export { default as startBtnIcon } from './icons/start_btn.png';
 export { default as urlIcon } from './icons/url.png';
 export { default as volumeIcon } from './icons/volume.png';
 export { default as welcomeImage } from './icons/welcome.webp';
+export { default as xp_loading_logo } from './icons/xp_loading_logo.jpg';
+export { default as xp_loading_mslogo } from './icons/xp_loading_mslogo.jpg';

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { useDiscogsCollection } from '@hooks/useDiscogsCollection';
+import { usePrefetchedDiscogs } from '@contexts/DataPrefetchContext';
 
 const DiscogsContext = createContext();
 
@@ -12,12 +12,10 @@ export const useDiscogsContext = () => {
 };
 
 export const DiscogsProvider = ({ children }) => {
-  const USERNAME = 'davidrocha9';
-  const discogsData = useDiscogsCollection(USERNAME);
+  const discogsData = usePrefetchedDiscogs();
 
   const value = {
     ...discogsData,
-    username: USERNAME,
   };
 
   return (

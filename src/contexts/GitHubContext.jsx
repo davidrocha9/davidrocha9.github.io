@@ -1,23 +1,13 @@
 import { createContext, useContext } from 'react';
-import useGitHubProfile from '../hooks/useGitHubProfile';
+import { usePrefetchedGitHub } from '@contexts/DataPrefetchContext';
 
 const GitHubContext = createContext();
 
 export const GitHubProvider = ({ children, username }) => {
-  const { profile, repos, pinnedRepos, loading, error } = useGitHubProfile(username);
-
-  const openGitHub = (url) => {
-    const target = url || `https://github.com/${username}`;
-    window.open(target, '_blank', 'noopener,noreferrer');
-  };
+  const prefetchedData = usePrefetchedGitHub();
 
   const value = {
-    profile,
-    repos,
-    pinnedRepos,
-    loading,
-    error,
-    openGitHub,
+    ...prefetchedData,
   };
 
   return (

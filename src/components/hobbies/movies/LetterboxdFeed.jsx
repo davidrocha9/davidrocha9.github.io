@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLetterboxdFeed } from '@hooks';
+import { usePrefetchedLetterboxd } from '@contexts/DataPrefetchContext';
 import { FilmCard, Loading, Error } from '@components/hobbies/movies';
 import '@components/hobbies/movies/LetterboxdFeed.css';
 
 const LetterboxdFeed = ({ username = 'davidrocha9' }) => {
-  const { films, loading, error, openLetterboxd } = useLetterboxdFeed(username);
+  const { films, loading, error, openLetterboxd } = usePrefetchedLetterboxd();
 
   if (loading) {
     return <Loading />;
