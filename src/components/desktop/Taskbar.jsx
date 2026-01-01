@@ -3,8 +3,10 @@ import welcomeIcon from '@assets/icons/welcome.webp';
 import volumeIcon from '@assets/icons/volume.png';
 import '@components/desktop/Taskbar.css';
 import { useEffect, useState } from 'react';
+import { useWindow } from '@contexts/WindowContext';
 
-const Taskbar = ({ openWindows = [], activeWindowId, setActiveWindowId, minimizedWindows = new Set(), setMinimizedWindows, showNotification, setShowNotification }) => {
+const Taskbar = () => {
+  const { openWindows, activeWindowId, setActiveWindowId, minimizedWindows, setMinimizedWindows, showNotification, setShowNotification } = useWindow();
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
