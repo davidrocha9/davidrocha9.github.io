@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 import { useDesktopContext } from '@contexts/DesktopContext';
+import { trackFolderFileOpen } from '@/utils/analytics';
 
-const FolderFiles = ({ files }) => {
+const FolderFiles = ({ files, folderName = 'Unknown Folder' }) => {
   const { selectedIconId, handleIconMouseDown, handleIconClick, handleIconDoubleClick } = useDesktopContext();
   const mouseDownPos = useRef(null);
   const DRAG_THRESHOLD = 5;
@@ -32,6 +33,8 @@ const FolderFiles = ({ files }) => {
         return;
       }
     }
+    // Track folder file open
+    trackFolderFileOpen(folderName, item.label, item.type, item.id);
     if (typeof handleIconDoubleClick === 'function') handleIconDoubleClick(item, e);
   };
 

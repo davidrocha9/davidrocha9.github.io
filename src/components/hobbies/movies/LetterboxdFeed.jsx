@@ -2,6 +2,7 @@ import React from 'react';
 import { usePrefetchedLetterboxd } from '@contexts/DataPrefetchContext';
 import { FilmCard, Loading, Error } from '@components/hobbies/movies';
 import '@components/hobbies/movies/LetterboxdFeed.css';
+import { trackExternalLink } from '@/utils/analytics';
 
 const LetterboxdFeed = ({ username = 'davidrocha9' }) => {
   const { films, loading, error, openLetterboxd } = usePrefetchedLetterboxd();
@@ -32,7 +33,10 @@ const LetterboxdFeed = ({ username = 'davidrocha9' }) => {
       </div>
 
       <div className="letterboxd-footer">
-        <button onClick={() => openLetterboxd()}>
+        <button onClick={() => {
+          trackExternalLink('letterboxd', `https://letterboxd.com/${username}/`, 'Letterboxd Profile');
+          openLetterboxd();
+        }}>
           View full profile on Letterboxd ↗
         </button>
       </div>

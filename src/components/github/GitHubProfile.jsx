@@ -3,10 +3,20 @@ import { GitHubProvider, useGitHub } from '@contexts/GitHubContext';
 import { GitHubSidebar, GitHubMain, GitHubLoading, GitHubError } from './';
 import Tabs from '@enums/Tabs';
 import '@components/github/GitHubProfile.css';
+import { trackTabSwitch } from '@/utils/analytics';
 
 const GitHubProfileContent = () => {
   const { loading, error } = useGitHub();
   const [activeTab, setActiveTab] = useState(Tabs.OVERVIEW);
+
+  const handleTabChange = (newTab) => {
+    if (newTab !== activeTab) {
+      trackTabSwitch('github', newTab === Tabs.OVERVIEW ? 'overview' : 'repositories', 
+        activeTab === Tabs.OVERVIEW ? 'overview' : 'repositories');
+      setActiveTab(newTab);
+    }
+  };
+
   if (loading) return <GitHubLoading />;
   if (error) return <GitHubError />;
 
@@ -17,13 +27,13 @@ const GitHubProfileContent = () => {
         <div className="github-tabs">
           <button
             className={activeTab === Tabs.OVERVIEW ? 'active' : ''}
-            onClick={() => setActiveTab(Tabs.OVERVIEW)}
+            onClick={() => handleTabChange(Tabs.OVERVIEW)}
           >
             Overview
           </button>
           <button
             className={activeTab === Tabs.REPOS ? 'active' : ''}
-            onClick={() => setActiveTab(Tabs.REPOS)}
+            onClick={() => handleTabChange(Tabs.REPOS)}
           >
             Repositories
           </button>

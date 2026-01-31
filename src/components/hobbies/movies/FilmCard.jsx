@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackExternalLink } from '@/utils/analytics';
 
 const FilmCard = ({ film, onFilmClick }) => {
   const renderStars = (rating) => {
@@ -6,10 +7,17 @@ const FilmCard = ({ film, onFilmClick }) => {
     return <span className="film-rating">{rating}</span>;
   };
 
+  const handleClick = () => {
+    if (film.link) {
+      trackExternalLink('letterboxd_film', film.link, film.title);
+      onFilmClick(film.link);
+    }
+  };
+
   return (
     <div
       className="film-card"
-      onClick={() => onFilmClick(film.link)}
+      onClick={handleClick}
       title={`${film.title} (${film.year})`}
     >
       <div className="film-poster">

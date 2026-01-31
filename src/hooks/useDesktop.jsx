@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useWindow } from '../contexts/WindowContext';
 import WindowTypes from '../enums/WindowTypes';
+import { trackWindowOpen, trackIconInteraction, trackExternalLink, trackFolderAccess } from '@/utils/analytics';
 
 import experienceIcon from '@assets/icons/experience.png';
 import educationIcon from '@assets/icons/education.png';
@@ -90,6 +91,12 @@ export default function useDesktop() {
       }
     }
     setSelectedIconId(id);
+    
+    // Find the icon info for tracking
+    const icon = icons.find(i => i.id === id);
+    if (icon) {
+      trackIconInteraction('click', icon.label, icon.type, icon.id);
+    }
   };
 
   const handleIconDoubleClick = (item, e) => {
@@ -102,6 +109,9 @@ export default function useDesktop() {
         return;
       }
     }
+
+    // Track desktop icon double-click
+    trackIconInteraction('double_click', item.label, item.type, item.id);
 
     const TASKBAR_HEIGHT = 30; // bottom taskbar
     const TAB_SIZE = 40; // approximate title/toolbar height to consider
@@ -121,6 +131,22 @@ export default function useDesktop() {
       initialSize: { width: initialWidth, height: initialHeight },
       maxSize: { width: maxWidth, height: maxHeight },
     };
+
+    // Track external link clicks for LinkedIn and GitHub
+    if (item.type === WindowTypes.LINKEDIN) {
+      trackExternalLink('linkedin', `https://linkedin.com/in/${item.username}`, 'LinkedIn Profile');
+    } else if (item.type === WindowTypes.GITHUB) {
+      trackExternalLink('github', `https://github.com/${item.username}`, 'GitHub Profile');
+    } else if (item.type === WindowTypes.MAIL) {
+      trackExternalLink('mail', `mailto:${item.recipient}`, 'Email Contact');
+    } else if (item.type === WindowTypes.FOLDER && item.files) {
+      // Track folder access specifically with file details
+      const fileTypes = item.files.map(f => f.type).filter((v, i, a) => a.indexOf(v) === i);
+      trackFolderAccess(item.label, item.id, item.files.length, fileTypes);
+    } else {
+      // Track window open for non-external links
+      trackWindowOpen(item.type, item.label || item.title, item.id);
+    }
 
     if (!openWindows.find((w) => w.id === item.id)) {
       setOpenWindows([...openWindows, newWindow]);

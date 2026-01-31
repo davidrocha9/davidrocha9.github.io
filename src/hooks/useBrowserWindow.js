@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { trackBrowserNavigation, trackExternalLink } from '@/utils/analytics';
 
 const useBrowserWindow = (initialUrl) => {
   const [currentUrl, setCurrentUrl] = useState(initialUrl);
@@ -12,6 +13,7 @@ const useBrowserWindow = (initialUrl) => {
     setIsLoading(true);
     setMaybeBlocked(false);
     setCurrentUrl(inputUrl);
+    trackBrowserNavigation('go', inputUrl, 'Browser Navigation');
   };
 
   const handleKeyDown = (e) => {
@@ -22,6 +24,7 @@ const useBrowserWindow = (initialUrl) => {
 
   const openExternally = useCallback((u) => {
     const target = u || currentUrl;
+    trackExternalLink('browser_external', target, 'Browser External Link');
     try {
       window.open(target, '_blank', 'noopener,noreferrer');
     } catch (error) {

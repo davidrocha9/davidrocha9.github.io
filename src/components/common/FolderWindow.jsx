@@ -7,7 +7,7 @@ const FolderWindow = ({ window, files }) => {
       <div className="window-body" style={{ margin: '0px' }}>
         <div className="window-content-container">
           <FolderSidebar />
-          <FolderFiles files={files} />
+          <FolderFiles files={files} folderName={window.label || window.title} />
         </div>
       </div>
     </>

@@ -6,6 +6,8 @@ import DesktopLoading from '@/components/desktop/DesktopLoading';
 import { useDataPrefetch } from '@contexts/DataPrefetchContext';
 import { WindowProvider } from '@contexts/WindowContext';
 import { DataPrefetchProvider } from '@contexts/DataPrefetchContext';
+import { trackPageAccess } from '@/utils/analytics';
+import { useEffect } from 'react';
 
 function App() {
   return (
@@ -24,6 +26,13 @@ export default App;
 
 function DesktopLoader() {
   const { globalLoading } = useDataPrefetch();
+  
+  useEffect(() => {
+    // Track page access when portfolio loads
+    if (!globalLoading) {
+      trackPageAccess();
+    }
+  }, [globalLoading]);
   
   return globalLoading ? <DesktopLoading /> : <Desktop />;
 }

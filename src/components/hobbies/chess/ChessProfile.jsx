@@ -1,9 +1,17 @@
 import { Loading, Error, StatsView, GamesView, ChessTabs } from '@components/hobbies/chess/index';
 import { ChessProvider, useChessContext } from '@contexts/ChessContext';
 import '@components/hobbies/chess/ChessProfile.css';
+import { trackTabSwitch, trackExternalLink } from '@/utils/analytics';
 
 const ChessProfileContent = () => {
   const { loading, error, openChess, username, activeTab, setActiveTab } = useChessContext();
+
+  const handleTabChange = (newTab) => {
+    if (newTab !== activeTab) {
+      trackTabSwitch('chess', newTab, activeTab);
+      setActiveTab(newTab);
+    }
+  };
 
   if (loading) {
     return <Loading />;
@@ -20,13 +28,13 @@ const ChessProfileContent = () => {
         <div className="chess-tabs">
           <button
             className={activeTab === ChessTabs.STATS ? 'active' : ''}
-            onClick={() => setActiveTab(ChessTabs.STATS)}
+            onClick={() => handleTabChange(ChessTabs.STATS)}
           >
             Stats
           </button>
           <button
             className={activeTab === ChessTabs.GAMES ? 'active' : ''}
-            onClick={() => setActiveTab(ChessTabs.GAMES)}
+            onClick={() => handleTabChange(ChessTabs.GAMES)}
           >
             Recent Games
           </button>
@@ -39,7 +47,10 @@ const ChessProfileContent = () => {
       </div>
 
       <div className="chess-footer">
-        <button onClick={() => openChess(`/member/${username}`)}>
+        <button onClick={() => {
+          trackExternalLink('chess', `https://www.chess.com/member/${username}`, 'Chess.com Profile');
+          openChess(`/member/${username}`);
+        }}>
           View full profile on Chess.com ↗
         </button>
       </div>

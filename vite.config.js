@@ -20,6 +20,7 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@enums': path.resolve(__dirname, './src/enums'),
+      '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
 })

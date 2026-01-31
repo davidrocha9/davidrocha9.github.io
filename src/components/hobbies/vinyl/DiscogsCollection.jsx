@@ -1,6 +1,7 @@
 import { Loading, Error, CollectionGrid, Pagination } from '@components/hobbies/vinyl/index';
 import { DiscogsProvider, useDiscogsContext } from '@contexts/DiscogsContext';
 import '@components/hobbies/vinyl/DiscogsCollection.css';
+import { trackExternalLink } from '@/utils/analytics';
 
 const DiscogsCollectionContent = () => {
   const { loading, error, pagination, username, openDiscogs } = useDiscogsContext();
@@ -27,7 +28,10 @@ const DiscogsCollectionContent = () => {
       <Pagination />
 
       <div className="discogs-footer">
-        <button onClick={() => openDiscogs(`https://www.discogs.com/user/${username}/collection`)}>
+        <button onClick={() => {
+          trackExternalLink('discogs', `https://www.discogs.com/user/${username}/collection`, 'Discogs Collection');
+          openDiscogs(`https://www.discogs.com/user/${username}/collection`);
+        }}>
           View full collection on Discogs ↗
         </button>
       </div>

@@ -1,10 +1,12 @@
 import gamesData from '@assets/data/hobbies/games.json';
 import '@components/hobbies/movies/LetterboxdFeed.css';
+import { trackExternalLink } from '@/utils/analytics';
 
 const Games = () => {
     const games = gamesData;
 
-    const openGame = (url) => {
+    const openGame = (url, gameTitle) => {
+        trackExternalLink('game', url, gameTitle);
         window.open(url, '_blank', 'noopener,noreferrer');
     };
 
@@ -16,7 +18,7 @@ const Games = () => {
 
             <div className="films-grid">
                 {games.map((game, idx) => (
-                    <div key={idx} className="film-card" onClick={() => openGame(game.link)} title={`${game.title} (${game.year})`}>
+                    <div key={idx} className="film-card" onClick={() => openGame(game.link, game.title)} title={`${game.title} (${game.year})`}>
                         <div className="film-poster">
                             <img src={game.image} alt={game.title} loading="lazy" />
                         </div>
@@ -31,7 +33,7 @@ const Games = () => {
             </div>
 
             <div className="letterboxd-footer">
-                <button onClick={() => openGame('https://store.steampowered.com/')}>Browse on Steam ↗</button>
+                <button onClick={() => openGame('https://store.steampowered.com/', 'Steam Store')}>Browse on Steam ↗</button>
             </div>
         </div>
     );

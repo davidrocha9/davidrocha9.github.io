@@ -1,10 +1,11 @@
-
 import '@components/hobbies/music/SpotifyPlayer.css';
 import artists from '@components/hobbies/music/artists.json';
 import albums from '@components/hobbies/music/albums.json';
+import { trackExternalLink } from '@/utils/analytics';
 
 const SpotifyPlayer = ({ username = 'davidrocha9' }) => {
-  const openSpotify = (path = '') => {
+  const openSpotify = (path = '', label = 'Spotify') => {
+    trackExternalLink('spotify', `https://open.spotify.com${path}`, label);
     window.open(`https://open.spotify.com${path}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -23,10 +24,10 @@ const SpotifyPlayer = ({ username = 'davidrocha9' }) => {
                 <h3>{username}</h3>
                 <p>Spotify Profile</p>
                 <div className="profile-actions">
-                  <button onClick={() => openSpotify(`/user/${username}`)}>
+                  <button onClick={() => openSpotify(`/user/${username}`, 'Spotify Profile')}>
                     View Profile ↗
                   </button>
-                  <button onClick={() => openSpotify(`/user/${username}/playlists`)}>
+                  <button onClick={() => openSpotify(`/user/${username}/playlists`, 'Spotify Playlists')}>
                     My Playlists ↗
                   </button>
                 </div>
@@ -64,7 +65,7 @@ const SpotifyPlayer = ({ username = 'davidrocha9' }) => {
       </div>
 
       <div className="spotify-footer">
-        <button onClick={() => openSpotify(`/user/${username}`)}>
+        <button onClick={() => openSpotify(`/user/${username}`, 'Spotify Open')}>
           Open Spotify ↗
         </button>
       </div>
