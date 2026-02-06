@@ -22,7 +22,7 @@ const DesktopLoading = () => {
 
       <div className="xp-loading__copyright">
         <div className="xp-loading__copyright-text xp-loading__copyright-text--start">
-            <p>Copyright © Microsoft Corporation</p>
+          <p>Copyright © David Rocha</p>
         </div>
         <div className="xp-loading__copyright-text xp-loading__copyright-text--end">
             <img src={xp_loading_mslogo} alt="Microsoft Logo" width={"125px"}/>
