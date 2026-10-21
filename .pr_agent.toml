@@ -13,6 +13,8 @@ max_skills_tokens = 8000
 persistent_comment = true
 inline_key_issues = true
 final_update_message = false
+enable_review_labels_effort = false
+enable_review_labels_security = false
 
 [github]
 publish_as_check_run = true
