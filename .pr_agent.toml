@@ -1,0 +1,26 @@
+# PR Agent repo configuration: https://docs.pr-agent.ai/usage-guide/configuration_options/
+[config]
+model = "openrouter/minimax/minimax-m3.1-flash:free"
+fallback_models = []
+custom_model_max_tokens = 128000
+
+[skills]
+enabled = true
+paths = [".agents/skills"]
+max_skills_tokens = 8000
+
+[pr_reviewer]
+persistent_comment = true
+inline_key_issues = true
+final_update_message = false
+enable_review_labels_effort = false
+enable_review_labels_security = false
+
+[github]
+publish_as_check_run = true
+
+[github_action_config]
+auto_describe = false
+auto_improve = false
+handle_push_trigger = true
+push_commands = ['/review']
