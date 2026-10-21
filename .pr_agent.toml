@@ -11,6 +11,7 @@ max_skills_tokens = 8000
 
 [pr_reviewer]
 persistent_comment = false
+inline_key_issues = true
 
 [github_action_config]
 auto_describe = false
