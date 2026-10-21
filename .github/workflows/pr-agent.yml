@@ -9,8 +9,11 @@ jobs:
       pull-requests: write
       issues: write
     steps:
+    - name: Checkout
+      uses: actions/checkout@v4
     - name: PR Agent action step
       uses: the-pr-agent/pr-agent@main
       env:
-        OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+        OPENROUTER__KEY: ${{ secrets.OPENROUTER_KEY }}
+        OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,5 @@
+# PR Agent repo configuration: https://docs.pr-agent.ai/usage-guide/configuration_options/
+[config]
+model = "openrouter/minimax/minimax-m3.1-flash:free"
+fallback_models = []
+custom_model_max_tokens = 128000
