@@ -24,10 +24,6 @@ jobs:
       # pinned to main as of 2026-10-21; update deliberately via PR
       uses: the-pr-agent/pr-agent@a3bdec38cdb98736ab1f8be067c507bbdce954bc
       env:
-        # Solo-repo tradeoff: reviewer settings/skills load from the PR branch so they
-        # work before .pr_agent.toml lands on main. Revisit if collaborators join,
-        # then drop this and let the action use the protected default branch.
-        PR_AGENT_CONFIG_BRANCH: ${{ github.head_ref }}
         CONFIG__MODEL: "openrouter/minimax/minimax-m3.1-flash:free"
         CONFIG__CUSTOM_MODEL_MAX_TOKENS: "128000"
         OPENROUTER__KEY: ${{ secrets.OPENROUTER_KEY }}
