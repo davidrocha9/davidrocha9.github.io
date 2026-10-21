@@ -10,8 +10,12 @@ paths = [".agents/skills"]
 max_skills_tokens = 8000
 
 [pr_reviewer]
-persistent_comment = false
+persistent_comment = true
 inline_key_issues = true
+final_update_message = false
+
+[github]
+publish_as_check_run = true
 
 [github_action_config]
 auto_describe = false
