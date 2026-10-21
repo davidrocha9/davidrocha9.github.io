@@ -20,3 +20,5 @@ publish_as_check_run = true
 [github_action_config]
 auto_describe = false
 auto_improve = false
+handle_push_trigger = true
+push_commands = ['/review']
