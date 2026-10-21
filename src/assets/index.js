@@ -39,6 +39,7 @@ export { default as myNetworkPlacesIcon } from './icons/my-network-places.png';
 export { default as myPicturesIcon } from './icons/my-pictures.png';
 export { default as newFolderIcon } from './icons/new-folder.png';
 export { default as pdfIcon } from './icons/pdf.png';
+export { default as textIcon } from './icons/text.png';
 export { default as programsIcon } from './icons/programs.png';
 export { default as projectsIcon } from './icons/projects.png';
 export { default as publishToWebIcon } from './icons/publish-to-web.png';

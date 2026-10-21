@@ -11,6 +11,7 @@ import emailIcon from '@assets/icons/email.png';
 import linkedinIcon from '@assets/icons/linkedin.png';
 import githubIcon from '@assets/icons/github.png';
 import pdfIcon from '@assets/icons/pdf.png';
+import textIcon from '@assets/icons/text.png';
 import myMusicIcon from '@assets/icons/my-music.png';
 import gamesIcon from '@assets/icons/games.png';
 import chessIcon from '@assets/icons/chess.png';
@@ -21,10 +22,11 @@ import dulceIcon from '@assets/projects/dulcecast.png';
 import linhavivaIcon from '@assets/projects/linhaviva.png';
 import xpIcon from '@assets/xp-logo.png';
 
-import arkadiumPdf from '../pdf/arkadium.pdf';
-import beyourbestPdf from '../pdf/beyourbest.pdf';
-import zerozeroPdf from '../pdf/zerozero.pdf';
-import educationPdf from '../pdf/education.pdf';
+import arkadiumMd from '@assets/docs/arkadium.md?raw';
+import beyourbestMd from '@assets/docs/beyourbest.md?raw';
+import zerozeroMd from '@assets/docs/zerozero.md?raw';
+import educationMd from '@assets/docs/education.md?raw';
+
 import resumePdf from '../pdf/resume.pdf';
 
 import footballMd from '@assets/hobbies/football.md?raw';
@@ -40,9 +42,9 @@ export default function useDesktop() {
   const mouseDownPos = useRef(null);
 
   const experienceContent = [
-    { id: 'pdf-beyourbest', label: 'beyourbest.pdf', icon: pdfIcon, type: WindowTypes.PDF, title: 'BeYourBest - Work Experience', pdfUrl: beyourbestPdf },
-    { id: 'pdf-arkadium', label: 'arkadium.pdf', icon: pdfIcon, type: WindowTypes.PDF, title: 'Arkadium - Work Experience', pdfUrl: arkadiumPdf },
-    { id: 'pdf-zerozero', label: 'zerozero.pdf', icon: pdfIcon, type: WindowTypes.PDF, title: 'ZeroZero - Work Experience', pdfUrl: zerozeroPdf },
+    { id: 'md-beyourbest', label: 'beyourbest.md', icon: textIcon, type: WindowTypes.MARKDOWN, title: 'BeYourBest - Work Experience', content: beyourbestMd },
+    { id: 'md-arkadium', label: 'arkadium.md', icon: textIcon, type: WindowTypes.MARKDOWN, title: 'Arkadium - Work Experience', content: arkadiumMd },
+    { id: 'md-zerozero', label: 'zerozero.md', icon: textIcon, type: WindowTypes.MARKDOWN, title: 'ZeroZero - Work Experience', content: zerozeroMd },
   ];
 
   const projectsContent = [
@@ -55,7 +57,7 @@ export default function useDesktop() {
   const footballContentResolved = footballContent.replace(/src=["']football.png["']/g, `src="${footballImg}"`);
 
   const hobbiesContent = [
-    { id: 'doc-football', label: 'Football.md', icon: pdfIcon, type: WindowTypes.MARKDOWN, title: 'Football', content: footballContentResolved },
+    { id: 'doc-football', label: 'Football.md', icon: textIcon, type: WindowTypes.MARKDOWN, title: 'Football', content: footballContentResolved },
     { id: 'spotify-music', label: 'Music', icon: myMusicIcon, type: WindowTypes.SPOTIFY, title: 'Spotify', username: 'davidrocha9' },
     { id: 'discogs-vinyl', label: 'Vinyl Records', icon: myMusicIcon, type: WindowTypes.DISCOGS, title: 'Discogs Collection', username: 'davidrocha9' },
     { id: 'games-favorites', label: 'Gaming', icon: gamesIcon, type: WindowTypes.GAMES, title: 'Games' },
@@ -67,7 +69,7 @@ export default function useDesktop() {
 
   const icons = [
     { id: 1, label: 'Experience', icon: experienceIcon, type: WindowTypes.FOLDER, files: experienceContent },
-    { id: 'education', label: 'Education', icon: educationIcon, type: WindowTypes.PDF, title: 'Education', pdfUrl: educationPdf },
+    { id: 'education', label: 'Education', icon: educationIcon, type: WindowTypes.MARKDOWN, title: 'Education', content: educationMd },
     { id: 'resume', label: 'Full Resumé', icon: pdfIcon, type: WindowTypes.PDF, title: 'Full Resumé', pdfUrl: resumePdf },
     { id: 3, label: 'Projects', icon: projectsIcon, type: WindowTypes.FOLDER, files: projectsContent },
     { id: 4, label: 'Hobbies', icon: hobbiesIcon, type: WindowTypes.FOLDER, files: hobbiesContent },

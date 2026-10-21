@@ -5,6 +5,16 @@ import '@components/desktop/Taskbar.css';
 import { useEffect, useState } from 'react';
 import { useWindow } from '@contexts/WindowContext';
 
+const BIRTH_DATE = new Date(2000, 8, 5); // September 5, 2000 (month is 0-indexed)
+
+const getAge = (birthDate, now = new Date()) => {
+  let age = now.getFullYear() - birthDate.getFullYear();
+  const hasHadBirthdayThisYear =
+    now.getMonth() > birthDate.getMonth() ||
+    (now.getMonth() === birthDate.getMonth() && now.getDate() >= birthDate.getDate());
+  return hasHadBirthdayThisYear ? age : age - 1;
+};
+
 const Taskbar = () => {
   const { openWindows, activeWindowId, setActiveWindowId, minimizedWindows, setMinimizedWindows, showNotification, setShowNotification } = useWindow();
   const [time, setTime] = useState(new Date());
@@ -89,7 +99,7 @@ const Taskbar = () => {
             </div>
           </div>
           <div className="notification-body">
-            <p>I'm David Rocha, a 25 year-old software engineer with a passion for building cool stuff.</p>
+            <p>I'm David Rocha, a {getAge(BIRTH_DATE)} year-old software engineer with a passion for building cool stuff.</p>
             <p>Feel free to explore my portfolio and get in touch with me.</p>
           </div>
         </div>
