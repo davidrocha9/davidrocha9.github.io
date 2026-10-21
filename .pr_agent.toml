@@ -3,3 +3,8 @@
 model = "openrouter/minimax/minimax-m3.1-flash:free"
 fallback_models = []
 custom_model_max_tokens = 128000
+
+[skills]
+enabled = true
+paths = [".agents/skills"]
+max_skills_tokens = 8000
